@@ -128,8 +128,22 @@ int main(void)
   HAL_GPIO_WritePin(slpSmallPort, slpSmall, 1);
   HAL_GPIO_WritePin(dirSmallPort, dirSmall, 0);
 
+//  HAL_GPIO_WritePin(rstSmallPort, rstSmall, 0);
 
-
+//  HAL_GPIO_WritePin(dirSmallPort, dirSmall, 0);
+//  HAL_GPIO_WritePin(dirBigPort, dirBig, 0);
+//  for(int i=0; i<400;i++){
+////		  GPIO_PinState maxSwitch = HAL_GPIO_ReadPin(GPIOC, switchPin);
+////		  if(maxSwitch){
+////		  		  HAL_GPIO_WritePin(GPIOB, turnOff, 0);
+////		  	  }
+////			  HAL_GPIO_WritePin(stepBigPort, stepBig, 1);
+//	  HAL_GPIO_WritePin(stepSmallPort, stepSmall, 1);
+//	  HAL_Delay(1);
+//	  HAL_GPIO_WritePin(stepBigPort, stepBig, 0);
+//	  HAL_GPIO_WritePin(stepSmallPort, stepSmall, 0);
+//	  HAL_Delay(1);
+//  }
 
 //  HAL_GPIO_WritePin(GPIOC, turnOff, 0);
 //  for(int j=0; j<4; j++){
