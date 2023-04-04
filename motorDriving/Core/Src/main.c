@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "motorController.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,6 +40,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
@@ -47,7 +49,18 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
+  return ch;
+}
 
 /* USER CODE END PFP */
 
@@ -84,102 +97,21 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-#define dirBig GPIO_PIN_4
-#define dirBigPort GPIOC
-#define stepBig GPIO_PIN_1
-#define stepBigPort GPIOC
-#define slpBig GPIO_PIN_3
-#define slpBigPort GPIOC
-#define rstBig GPIO_PIN_0
-#define rstBigPort GPIOC
-#define switchBig GPIO_PIN_5
-#define switchBigPort GPIOC
-#define turnBig GPIO_PIN_2
-#define turnBigPort GPIOB
 
-#define dirSmall GPIO_PIN_7
-#define dirSmallPort GPIOD
-#define stepSmall GPIO_PIN_6
-#define stepSmallPort GPIOD
-#define slpSmall GPIO_PIN_5
-#define slpSmallPort GPIOD
-#define rstSmall GPIO_PIN_4
-#define rstSmallPort GPIOD
-#define switchSmall GPIO_PIN_5
-#define switchSmallPort GPIOD
-#define turnSmall GPIO_PIN_2
-#define turnSmallPort GPIOD
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_GPIO_WritePin(rstBigPort, rstBig, 1);
-  HAL_GPIO_WritePin(slpBigPort, slpBig, 1);
-  HAL_GPIO_WritePin(dirBigPort, dirBig, 0);
-
-  HAL_GPIO_WritePin(rstSmallPort, rstSmall, 1);
-  HAL_GPIO_WritePin(slpSmallPort, slpSmall, 1);
-  HAL_GPIO_WritePin(dirSmallPort, dirSmall, 0);
-
-//  HAL_GPIO_WritePin(rstSmallPort, rstSmall, 0);
-
-//  HAL_GPIO_WritePin(dirSmallPort, dirSmall, 0);
-//  HAL_GPIO_WritePin(dirBigPort, dirBig, 0);
-//  for(int i=0; i<400;i++){
-////		  GPIO_PinState maxSwitch = HAL_GPIO_ReadPin(GPIOC, switchPin);
-////		  if(maxSwitch){
-////		  		  HAL_GPIO_WritePin(GPIOB, turnOff, 0);
-////		  	  }
-////			  HAL_GPIO_WritePin(stepBigPort, stepBig, 1);
-//	  HAL_GPIO_WritePin(stepSmallPort, stepSmall, 1);
-//	  HAL_Delay(1);
-//	  HAL_GPIO_WritePin(stepBigPort, stepBig, 0);
-//	  HAL_GPIO_WritePin(stepSmallPort, stepSmall, 0);
-//	  HAL_Delay(1);
-//  }
-
-//  HAL_GPIO_WritePin(GPIOC, turnOff, 0);
-//  for(int j=0; j<4; j++){
-
-	for(int j=0; j<5; j+=1){
-		  HAL_GPIO_WritePin(dirSmallPort, dirSmall, 0);
-		  HAL_GPIO_WritePin(dirBigPort, dirBig, 0);
-		  for(int i=0; i<400;i++){
-		//		  GPIO_PinState maxSwitch = HAL_GPIO_ReadPin(GPIOC, switchPin);
-		//		  if(maxSwitch){
-		//		  		  HAL_GPIO_WritePin(GPIOB, turnOff, 0);
-		//		  	  }
-			  HAL_GPIO_WritePin(stepBigPort, stepBig, 1);
-			  HAL_GPIO_WritePin(stepSmallPort, stepSmall, 1);
-			  HAL_Delay(1);
-			  HAL_GPIO_WritePin(stepBigPort, stepBig, 0);
-			  HAL_GPIO_WritePin(stepSmallPort, stepSmall, 0);
-			  HAL_Delay(1);
-		  }
-		  HAL_GPIO_WritePin(dirSmallPort, dirSmall, 1);
-		  HAL_GPIO_WritePin(dirBigPort, dirBig, 1);
-		  for(int i=0; i<400;i++){
-		  		//		  GPIO_PinState maxSwitch = HAL_GPIO_ReadPin(GPIOC, switchPin);
-		  		//		  if(maxSwitch){
-		  		//		  		  HAL_GPIO_WritePin(GPIOB, turnOff, 0);
-		  		//		  	  }
-		  			  HAL_GPIO_WritePin(stepBigPort, stepBig, 1);
-		  			  HAL_GPIO_WritePin(stepSmallPort, stepSmall, 1);
-		  			  HAL_Delay(1);
-		  			  HAL_GPIO_WritePin(stepBigPort, stepBig, 0);
-		  			  HAL_GPIO_WritePin(stepSmallPort, stepSmall, 0);
-		  			  HAL_Delay(1);
-		  		  }
-	}
-
-
+  struct coordinate coord = convertToCoord("A4");
+  coord = convertToCoord("P7");
   while (1)
   {
     /* USER CODE END WHILE */
@@ -232,6 +164,54 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 9600;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart2, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart2, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
 }
 
 /**
@@ -308,8 +288,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA1 PA3 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3;
+  /*Configure GPIO pin : PA1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -469,14 +449,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF12_SDMMC1;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PD3 */
-  GPIO_InitStruct.Pin = GPIO_PIN_3;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PD4 PD5 PD6 PD7 */

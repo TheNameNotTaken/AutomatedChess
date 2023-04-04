@@ -1,0 +1,15 @@
+#ifndef motorController_H_
+#define motorController_H_
+
+#include "main.h"
+
+struct coordinate{
+	int x;
+	int y;
+};
+
+
+void motorSetup();
+struct coordinate convertToCoord(char* square);
+
+#endif

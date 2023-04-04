@@ -1,0 +1,10 @@
+04:01:27 **** Incremental Build of configuration Debug for project numericKeypad ****
+make -j16 all 
+arm-none-eabi-size   numericKeypad.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33484	     20	   2980	  36484	   8e84	numericKeypad.elf
+Finished building: default.size.stdout
+ 
+
+04:01:27 Build Finished. 0 errors, 0 warnings. (took 524ms)
+

@@ -1,0 +1,12 @@
+#include "main.h"
+
+struct coordinate{
+	int x;
+	int y;
+};
+
+#define smallLength 2090
+#define bigLength 2140
+
+void motorSetup(){};
+struct coordinate convertToCoord(char* square){};
