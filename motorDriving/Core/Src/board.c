@@ -9,3 +9,8 @@ char** readNewBoard(){
 
 	return rows;
 }
+
+//update board to new board given full board
+void updateBoard(char** newBoard){
+
+}

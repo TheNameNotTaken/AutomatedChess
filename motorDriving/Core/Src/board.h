@@ -47,7 +47,10 @@ char** readCurrentBoard();
 void updateBoard(char** newBoard);
 
 //update board to new board given move
-void updateBoard(struct move change);
+void updateBoardMove(struct move change);
+
+//check if the current reading of the board is the same
+int compareBoard(char** newBoard);
 
 //given a new board and current board, find the move made
 struct move findMove(char** newBoard);
