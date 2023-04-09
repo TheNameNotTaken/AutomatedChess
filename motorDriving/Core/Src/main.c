@@ -112,13 +112,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 //  struct coordinate coord = convertToCoord("A4");
 //  coord = convertToCoord("P7");
-  moveToCoord("E4");
-  moveToCoord("A1");
-  moveToCoord("H8");
+  motorSetup();
+  moveToCoord("H5");
+//  moveToCoord("A1");
+//  moveToCoord("H8");
   while (1)
   {
     /* USER CODE END WHILE */
-
+//	    moveToCoord("A1");
+//	    moveToCoord("H8");
     /* USER CODE BEGIN 3 */
   }
 

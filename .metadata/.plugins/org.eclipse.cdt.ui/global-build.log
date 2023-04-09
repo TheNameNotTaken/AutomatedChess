@@ -263,3 +263,301 @@ arm-none-eabi-size   motorDriving.elf
   30876	    484	   1740	  33100	   814c	motorDriving.elf
 Finished building: default.size.stdout
  
+22:00:55 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30876	    484	   1740	  33100	   814c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:09:48 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30876	    484	   1740	  33100	   814c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:10:25 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:3: warning: implicit declaration of function 'moveToCoord'; did you mean 'convertToCoord'? [-Wimplicit-function-declaration]
+  116 |   moveToCoord("E4");
+      |   ^~~~~~~~~~~
+      |   convertToCoord
+arm-none-eabi-g++ -o "motorDriving.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="motorDriving.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: motorDriving.elf
+ 
+arm-none-eabi-size   motorDriving.elf 
+arm-none-eabi-objdump -h -S  motorDriving.elf  > "motorDriving.list"
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+Finished building: motorDriving.list
+ 
+22:11:05 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:16:09 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:18:46 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:21:06 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:26:48 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:28:35 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:29:27 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:30:15 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:31:15 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:32:21 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:33:16 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:33:38 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:34:58 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:35:49 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:36:29 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:38:00 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:40:11 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:44:20 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:44:59 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:46:44 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:48:23 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:49:14 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:50:47 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:54:55 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+22:58:38 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+23:01:24 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/motorController.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/motorController.d" -MT"Core/Src/motorController.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/motorController.o"
+../Core/Src/motorController.c: In function 'convertToCoord':
+../Core/Src/motorController.c:52:16: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+   52 |  coord.y = (2*(atoi(&square[1])-1) + 1)*(smallLength/16.0);
+      |                ^~~~
+../Core/Src/motorController.c:55:3: warning: implicit declaration of function 'exit' [-Wimplicit-function-declaration]
+   55 |   exit(1);
+      |   ^~~~
+../Core/Src/motorController.c:55:3: warning: incompatible implicit declaration of built-in function 'exit'
+../Core/Src/motorController.c:3:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
+    2 | #include <stdio.h>
+  +++ |+#include <stdlib.h>
+    3 | 
+arm-none-eabi-g++ -o "motorDriving.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="motorDriving.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: motorDriving.elf
+ 
+arm-none-eabi-size   motorDriving.elf 
+arm-none-eabi-objdump -h -S  motorDriving.elf  > "motorDriving.list"
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+Finished building: motorDriving.list
+ 
+23:01:56 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-size   motorDriving.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+23:04:14 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:3: warning: implicit declaration of function 'moveToCoord'; did you mean 'convertToCoord'? [-Wimplicit-function-declaration]
+  116 |   moveToCoord("H5");
+      |   ^~~~~~~~~~~
+      |   convertToCoord
+arm-none-eabi-g++ -o "motorDriving.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="motorDriving.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: motorDriving.elf
+ 
+arm-none-eabi-size   motorDriving.elf 
+arm-none-eabi-objdump -h -S  motorDriving.elf  > "motorDriving.list"
+   text	   data	    bss	    dec	    hex	filename
+  30932	    484	   1740	  33156	   8184	motorDriving.elf
+Finished building: default.size.stdout
+ 
+Finished building: motorDriving.list
+ 
+23:05:16 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:3: warning: implicit declaration of function 'moveToCoord'; did you mean 'convertToCoord'? [-Wimplicit-function-declaration]
+  116 |   moveToCoord("H5");
+      |   ^~~~~~~~~~~
+      |   convertToCoord
+arm-none-eabi-g++ -o "motorDriving.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="motorDriving.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: motorDriving.elf
+ 
+arm-none-eabi-size   motorDriving.elf 
+arm-none-eabi-objdump -h -S  motorDriving.elf  > "motorDriving.list"
+   text	   data	    bss	    dec	    hex	filename
+  30956	    484	   1740	  33180	   819c	motorDriving.elf
+Finished building: default.size.stdout
+ 
+Finished building: motorDriving.list
+ 
+23:05:54 **** Incremental Build of configuration Debug for project motorDriving ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:3: warning: implicit declaration of function 'moveToCoord'; did you mean 'convertToCoord'? [-Wimplicit-function-declaration]
+  116 |   moveToCoord("H5");
+      |   ^~~~~~~~~~~
+      |   convertToCoord
+arm-none-eabi-g++ -o "motorDriving.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="motorDriving.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: motorDriving.elf
+ 
+arm-none-eabi-size   motorDriving.elf 
+arm-none-eabi-objdump -h -S  motorDriving.elf  > "motorDriving.list"
+   text	   data	    bss	    dec	    hex	filename
+  30932	    484	   1740	  33156	   8184	motorDriving.elf
+Finished building: default.size.stdout
+ 
+Finished building: motorDriving.list
+ 

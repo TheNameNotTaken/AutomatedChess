@@ -75,11 +75,11 @@ void moveToCoord(char* square){
 		HAL_GPIO_WritePin(dirBigPort, dirBig, 0);
 	}
 	if(deltaY < 0){
-		HAL_GPIO_WritePin(dirSmallPort, dirBig, 1);
+		HAL_GPIO_WritePin(dirSmallPort, dirSmall, 1);
 		deltaY = deltaY*-1;
 	}
 	else{
-		HAL_GPIO_WritePin(dirSmallPort, dirBig, 0);
+		HAL_GPIO_WritePin(dirSmallPort, dirSmall, 0);
 	}
 
 
