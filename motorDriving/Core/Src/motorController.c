@@ -64,7 +64,7 @@ void moveToCoord(char* square){
 	int deltaY = pos.y - curPosition.y;
 	curPosition.x += deltaX;
 	curPosition.y += deltaY;
-
+	int counter = 0;
 
 	//Update direction moving
 	if(deltaX < 0){
@@ -89,14 +89,16 @@ void moveToCoord(char* square){
 			HAL_GPIO_WritePin(stepBigPort, stepBig, 1);
 		}
 		if(deltaY > 0){
+			if(counter == 5) counter = 0;
 			HAL_GPIO_WritePin(stepSmallPort, stepSmall, 1);
+			counter++;
 		}
 		HAL_Delay(1);
 		if(deltaX > 0){
 			HAL_GPIO_WritePin(stepBigPort, stepBig, 0);
 			deltaX--;
 		}
-		if(deltaY > 0){
+		if(deltaY > 0 && counter != 5){
 			HAL_GPIO_WritePin(stepSmallPort, stepSmall, 0);
 			deltaY--;
 		}

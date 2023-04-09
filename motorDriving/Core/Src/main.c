@@ -113,7 +113,7 @@ int main(void)
 //  struct coordinate coord = convertToCoord("A4");
 //  coord = convertToCoord("P7");
   motorSetup();
-  moveToCoord("H5");
+//  moveToCoord("H5");
 //  moveToCoord("A1");
 //  moveToCoord("H8");
   while (1)
