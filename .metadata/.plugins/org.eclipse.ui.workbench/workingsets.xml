@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
-<workingSet editPageId="org.eclipse.cdt.ui.CElementWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1680595317912_2" label="motorDriving" name="motorDriving">
-<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/motorDriving" type="4"/>
-</workingSet>
+<workingSet editPageId="org.eclipse.cdt.ui.CElementWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1680595317912_2" label="motorDriving" name="motorDriving"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1680116400993_0" label="Window Working Set" name="Aggregate for window 1680116400992"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1680297308511_1" label="Window Working Set" name="Aggregate for window 1680297308511"/>
 </workingSetManager>

@@ -1,3 +1,4 @@
-../Core/Src/motorController.c:37:6:motorSetup	8	static
-../Core/Src/motorController.c:49:19:convertToCoord	24	static
-../Core/Src/motorController.c:61:6:moveToCoord	32	static
+../Core/Src/motorController.c:40:6:motorSetup	8	static
+../Core/Src/motorController.c:52:19:convertToCoord	24	static
+../Core/Src/motorController.c:64:6:moveToCoord	40	static
+../Core/Src/motorController.c:115:6:executeInstruction	48	static

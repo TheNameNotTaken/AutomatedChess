@@ -1,5 +1,8 @@
 #include "motorController.h"
+#include "magnetController.h"
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #define dirBig GPIO_PIN_4
 #define dirBigPort GPIOC
@@ -51,7 +54,7 @@ struct coordinate convertToCoord(char* square){
 	coord.x = (2*(square[0] - 'A') + 1)*(bigLength/16.0);
 	coord.y = (2*(atoi(&square[1])-1) + 1)*(smallLength/16.0);
 	if(coord.x<0 || coord.x>bigLength || coord.y<0 || coord.y>smallLength){
-		printf("square %s doesn't exist or handled incorrectly", square);
+		printf("square %s doesn't exist or handled incorrectly", square); //TODO display on board
 		exit(1);
 	}
 	return coord;
@@ -105,20 +108,59 @@ void moveToCoord(char* square){
 	}
 }
 
-////instructions come in the form of two squares, followed by B/W for black
-////and white and P(awn)/R(ook)/H(orse)/B(ishop)/K(ing)/Q(ueen) ex "E2E4BR"
-//void executeInstruction(char* instructions){
-//	//TODO turn off electromagnet just in case
-//	char square1[2];
-//	char square2[2];
-//
-//	strncpy(square1, instructions, 2);
-//	strncpy(square2, instructions+2, 2);
-//
-//	//no matter what kind of move we're making we
-//
-//	if(square1)
-//
-//}
+// ASSUMES MOVES ARE VALID ALREADY
+// move come in the form of two squares, ex "e2e4"
+// color is an enum from magnetController BLACK, WHITE, or STOP
+// piece is an enum from motorController PAWN ROOK KNIGHT BISHOP QUEEN or KING
+void executeInstruction(char* move, int color, int piece){
+	setMagnet(STOP);
+	char start[3];
+	char goal[3];
+	char curSquare[3];
+
+	strncpy(start, move, 2);
+	start[2] = '\0';
+	strncpy(goal, move+2, 2);
+	goal[2] = '\0';
+	strncpy(curSquare, start, 2);
+	curSquare[2] = '\0';
+
+	strncpy(start, move, 2);
+	strncpy(goal, move+2, 2);
+	strncpy(curSquare, start, 2);
+
+	moveToCoord(start);
+
+	setMagnet(color);
+
+	if(piece == KNIGHT){
+		//TODO integrate with display
+		int xDelta = goal[0]-start[0];
+		int yDelta = goal[1]-start[1];
+		if(abs(xDelta)>abs(yDelta)){
+			curSquare[0] += xDelta;
+			moveToCoord(curSquare);
+			curSquare[1] += yDelta;
+			moveToCoord(curSquare);
+		}
+		else{
+			curSquare[1] += yDelta;
+			moveToCoord(curSquare);
+			curSquare[0] += xDelta;
+			moveToCoord(curSquare);
+		}
+	}
+	else{
+		while(strcmp(curSquare, goal) != 0){
+			if(curSquare[0]!=goal[0]){
+				curSquare[0] += (goal[0]-curSquare[0] > 0) ? 1:-1;
+			}
+			if(curSquare[1]!=goal[1]){
+				curSquare[1] += (goal[1]-curSquare[1] > 0) ? 1:-1;
+			}
+			moveToCoord(curSquare);
+		}
+	}
+}
 
 
