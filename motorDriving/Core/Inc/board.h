@@ -31,21 +31,37 @@
 // * p/P = pawn
 // * - = empty space
 // */
-//char board[8][8] = 	{{'r', 'h', 'b', 'k', 'q', 'b', 'h', 'r'},
-//					 {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
-//					 {'-', '-', '-', '-', '-', '-', '-', '-'},
-//					 {'-', '-', '-', '-', '-', '-', '-', '-'},
-//					 {'-', '-', '-', '-', '-', '-', '-', '-'},
-//					 {'-', '-', '-', '-', '-', '-', '-', '-'},
-//					 {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-//					 {'R', 'H', 'B', 'K', 'Q', 'B', 'H', 'R'}};
+char board[8][8] = 	{{'r', 'h', 'b', 'k', 'q', 'b', 'h', 'r'},
+					 {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+					 {'-', '-', '-', '-', '-', '-', '-', '-'},
+					 {'-', '-', '-', '-', '-', '-', '-', '-'},
+					 {'-', '-', '-', '-', '-', '-', '-', '-'},
+					 {'-', '-', '-', '-', '-', '-', '-', '-'},
+					 {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+					 {'R', 'H', 'B', 'K', 'Q', 'B', 'H', 'R'}};
+
+// add pin assignments
+Mux masterMux = {};
+Mux muxA = {};
+Mux muxB = {};
+Mux muxC = {};
+Mux muxD = {};
+Mux muxE = {};
+Mux muxF = {};
+Mux muxG = {};
+Mux muxH = {};
+Mux muxArr[9] = {masterMux, muxA, muxB, muxC, muxD, muxE, muxF, muxG, muxH};
+
+char pieces[24] = {'p', 'r', 'h', 'b', 'q', 'k', 'P', 'R', 'H', 'B', 'Q', 'K'};
+
+uint32_t hallValues[12][8][8];
 //
 //// reads the state of the new board and creates
 //// a DYNAMICALLY allocated board that has to be deleted
-//char** readCurrentBoard();
+char** readCurrentBoard();
 //
 ////update board to new board given full board
-//void updateBoard(char** newBoard);
+void updateBoard(char** newBoard);
 //
 ////update board to new board given move
 //void updateBoardMove(struct move change);
@@ -72,23 +88,23 @@
 //	char* values;
 //} Board;
 //
-//typedef struct {
-//	Pin* sel0;
-//	Pin* sel1;
-//	Pin* sel2;
-//} Mux;
+typedef struct {
+	Pin* sel0;
+	Pin* sel1;
+	Pin* sel2;
+} Mux;
 //
-//typedef struct {
-//    GPIO_TypeDef *port;
-//    uint16_t pin;
-//} Pin;
+typedef struct {
+    GPIO_TypeDef *port;
+    uint16_t pin;
+} Pin;
 //
 //Pin *new_pin(GPIO_TypeDef *_port, uint16_t _pin);
-//int readPin(Pin* pin);
-//void writePin(Pin* pin, int val);
-//
+int readPin(Pin* pin);
+void writePin(Pin* pin, int val);
+
 //Mux* newMux(Pin* pin0, Pin* pin1, Pin* pin2);
-//void setMuxVal(uint16_t val, Mux* mux);
+void setMuxVal(uint16_t val, Mux* mux);
 //// might also need a readMuxVal
 //
 ////char** readNewBoard();
