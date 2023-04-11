@@ -15,5 +15,10 @@ enum PIECE{PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING};
 
 void motorSetup();
 struct coordinate convertToCoord(char* square);
+void moveToExactCoord(struct coordinate pos);
+void stepForward();
+void stepBack();
+void stepRight();
+void stepLeft();
 
 #endif

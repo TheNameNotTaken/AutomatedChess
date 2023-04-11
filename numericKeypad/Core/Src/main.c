@@ -161,6 +161,7 @@ int main(void)
 
 
 	  keyNum = keyValue(colPorts, rowPorts, colPins, rowPins);
+
   }
   /* USER CODE END 3 */
 }

@@ -1,10 +1,17 @@
-15:22:03 **** Incremental Build of configuration Debug for project motorDriving ****
+23:59:03 **** Incremental Build of configuration Debug for project motorDriving ****
 make -j16 all 
+arm-none-eabi-gcc "../Core/Src/magnetController.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/magnetController.d" -MT"Core/Src/magnetController.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/magnetController.o"
+arm-none-eabi-g++ -o "motorDriving.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="motorDriving.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: motorDriving.elf
+ 
 arm-none-eabi-size   motorDriving.elf 
+arm-none-eabi-objdump -h -S  motorDriving.elf  > "motorDriving.list"
    text	   data	    bss	    dec	    hex	filename
-  30636	    484	   1732	  32852	   8054	motorDriving.elf
+  24216	    484	   1596	  26296	   66b8	motorDriving.elf
 Finished building: default.size.stdout
  
+Finished building: motorDriving.list
+ 
 
-15:22:03 Build Finished. 0 errors, 0 warnings. (took 413ms)
+23:59:04 Build Finished. 0 errors, 0 warnings. (took 737ms)
 
