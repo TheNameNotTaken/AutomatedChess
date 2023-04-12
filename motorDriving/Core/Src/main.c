@@ -188,11 +188,11 @@ int main(void)
 
 //  char* arr[16] = {"Jazib\0", "Jabibi\0","Ahmad\0"};
 //  makeMenu(3, arr);
-//  struct coordinate location = {2140, 1805};
+  struct coordinate location = {2140, 1805};
 //  moveToExactCoord(location);
-//  location.x=0;
-//  location.y=0;
-//  moveToExactCoord(location);
+  location.x=0;
+  location.y=0;
+  moveToExactCoord(location);
   uint32_t keyNum = 16;
   while (1)
   {
@@ -204,10 +204,10 @@ int main(void)
 //
 //	  keyNum = keyValue(colPorts, rowPorts, colPins, rowPins);
 //
-//	  if(keyNum == 4) stepForward();
+//	  if(keyNum == 2) stepForward();
 //	  if(keyNum == 6) stepRight();
-//	  if(keyNum == 7) stepLeft();
-//	  if(keyNum == 9) stepBack();
+//	  if(keyNum == 4) stepLeft();
+//	  if(keyNum == 5) stepBack();
 
 
   }
@@ -292,7 +292,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOF, GPIO_PIN_13|GPIO_PIN_14, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_9|GPIO_PIN_13|GPIO_PIN_0, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_9|GPIO_PIN_11|GPIO_PIN_0, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);
@@ -404,15 +404,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF1_TIM1;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PE9 PE13 PE0 */
-  GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_13|GPIO_PIN_0;
+  /*Configure GPIO pins : PE9 PE11 PE0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_11|GPIO_PIN_0;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PE11 */
-  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  /*Configure GPIO pin : PE13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);

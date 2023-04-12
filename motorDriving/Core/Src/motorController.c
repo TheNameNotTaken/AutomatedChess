@@ -31,13 +31,18 @@
 #define turnSmallPort GPIOD
 
 //Motor Variables
-#define smallLength 2090 //TODO update for smaller steps
-#define bigLength 2140 //TODO update for smaller steps
+#define smallLength 2090*8 //TODO update for smaller steps
+#define bigLength 2140*8 //TODO update for smaller steps
 
-#define largestX 2140
-#define smallestX 23
-#define largestY 1802
-#define smallestY 151
+//#define largestX 2140*16
+//#define smallestX 23*16
+//#define largestY 1802*16
+//#define smallestY 151*16
+
+#define largestX 2140*8
+#define smallestX 171
+#define largestY 14505
+#define smallestY 1312
 
 //X refers to larger space
 struct coordinate curPosition = {0,0};
@@ -56,9 +61,9 @@ void motorSetup(){
 //Square is input of form "{letter}{number}" for example "A4"
 struct coordinate convertToCoord(char* square){
 	struct coordinate coord;
-	coord.x = (2*(square[0] - 'A'))*((largestX-smallestX)/7)+smallestX;
-	coord.y = (2*(atoi(&square[1])-1))*((largestY-smallestY)/7)+smallestY;
-	if(coord.x<smallestX || coord.x>largestX || coord.y<smallestY || coord.y>largestY){
+	coord.x = ((square[0] - 'A'))*((largestX-smallestX)/7)+smallestX;
+	coord.y = ((atoi(&square[1])-1))*((largestY-smallestY)/7)+smallestY;
+		if(coord.x<smallestX || coord.x>largestX || coord.y<smallestY || coord.y>largestY){
 		printf("square %s doesn't exist or handled incorrectly", square); //TODO display on board
 		exit(1);
 	}
@@ -209,12 +214,13 @@ void executeInstruction(char* move, int color, int piece){
 			moveToCoord(curSquare);
 		}
 	}
+	setMagnet(STOP);
 }
 
 void stepForward(){
 	HAL_GPIO_WritePin(dirSmallPort, dirSmall, 0);
 	HAL_GPIO_WritePin(stepSmallPort, stepSmall, 1);
-	HAL_Delay(5);
+	HAL_Delay(1);
 	HAL_GPIO_WritePin(stepSmallPort, stepSmall, 0);
 	curPosition.y++;
 	int y = curPosition.y;
@@ -222,7 +228,7 @@ void stepForward(){
 void stepBack(){
 	HAL_GPIO_WritePin(dirSmallPort, dirSmall, 1);
 	HAL_GPIO_WritePin(stepSmallPort, stepSmall, 1);
-	HAL_Delay(5);
+	HAL_Delay(1);
 	HAL_GPIO_WritePin(stepSmallPort, stepSmall, 0);
 	curPosition.y--;
 	if(curPosition.y < 0) curPosition.y = 0;
@@ -231,7 +237,7 @@ void stepBack(){
 void stepRight(){
 	HAL_GPIO_WritePin(dirBigPort, dirBig, 0);
 	HAL_GPIO_WritePin(stepBigPort, stepBig, 1);
-	HAL_Delay(5);
+	HAL_Delay(1);
 	HAL_GPIO_WritePin(stepBigPort, stepBig, 0);
 	curPosition.x++;
 	int x = curPosition.x;
@@ -239,7 +245,7 @@ void stepRight(){
 void stepLeft(){
 	HAL_GPIO_WritePin(dirBigPort, dirBig, 1);
 	HAL_GPIO_WritePin(stepBigPort, stepBig, 1);
-	HAL_Delay(5);
+	HAL_Delay(1);
 	HAL_GPIO_WritePin(stepBigPort, stepBig, 0);
 	curPosition.x--;
 	if(curPosition.x < 0) curPosition.x = 0;
