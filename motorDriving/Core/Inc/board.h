@@ -24,21 +24,21 @@
 // * uppercase letters mean that a piece is white and undercase means black
 // * legend is following:
 // * r/R = rook
-// * h/H = horse/knight
+// * n/N = knight
 // * b/B = bishop
 // * k/K = king
 // * q/Q = queen
 // * p/P = pawn
 // * - = empty space
 // */
-char board[8][8] = 	{{'r', 'h', 'b', 'k', 'q', 'b', 'h', 'r'},
+char board[8][8] = 	{{'r', 'n', 'b', 'k', 'q', 'b', 'n', 'r'},
 					 {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
 					 {'-', '-', '-', '-', '-', '-', '-', '-'},
 					 {'-', '-', '-', '-', '-', '-', '-', '-'},
 					 {'-', '-', '-', '-', '-', '-', '-', '-'},
 					 {'-', '-', '-', '-', '-', '-', '-', '-'},
 					 {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-					 {'R', 'H', 'B', 'K', 'Q', 'B', 'H', 'R'}};
+					 {'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'}};
 
 // add pin assignments
 Mux masterMux = {};
@@ -52,7 +52,7 @@ Mux muxG = {};
 Mux muxH = {};
 Mux muxArr[9] = {masterMux, muxA, muxB, muxC, muxD, muxE, muxF, muxG, muxH};
 
-char pieces[24] = {'p', 'r', 'h', 'b', 'q', 'k', 'P', 'R', 'H', 'B', 'Q', 'K'};
+char pieces[24] = {'p', 'r', 'n', 'b', 'q', 'k', 'P', 'R', 'N', 'B', 'Q', 'K'};
 
 uint32_t hallValues[12][8][8];
 //
