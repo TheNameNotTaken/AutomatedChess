@@ -4211,3 +4211,35 @@
 2023-04-11 15:14:40,708 [INFO] ProjectBuilder:4351 - Time for Generating toolchain IDE Files: 2080mS.
 2023-04-11 15:14:40,708 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
 2023-04-11 15:14:40,708 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
+2023-04-13 12:21:13,340 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 660690672 Bytes (953155584)
+2023-04-13 12:21:13,398 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 677424168 Bytes (953155584)
+2023-04-13 12:21:16,314 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 694424624 Bytes (953155584)
+2023-04-13 12:21:16,485 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-04-13 12:21:16,486 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-04-13 12:21:16,486 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-04-13 12:21:16,486 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-04-13 12:21:16,487 [INFO] CodeGenerator:692 - code generatio: config db path: C:/Users/Jeremy/.stm32cubemx/databases/DB.6.0.60/db/
+2023-04-13 12:21:16,637 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\license.tmp_save
+2023-04-13 12:21:16,747 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\license.tmp
+2023-04-13 12:21:16,897 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\gpio.tmp_save
+2023-04-13 12:21:16,973 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\gpio.tmp
+2023-04-13 12:21:17,126 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_it.c_save
+2023-04-13 12:21:17,279 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_it.c
+2023-04-13 12:21:17,288 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_it.h_save
+2023-04-13 12:21:17,346 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_it.h
+2023-04-13 12:21:17,365 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_hal_msp.c_save
+2023-04-13 12:21:17,446 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_hal_msp.c
+2023-04-13 12:21:17,453 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\system.tmp_save
+2023-04-13 12:21:17,502 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\system.tmp
+2023-04-13 12:21:17,520 [INFO] CodeEngine:303 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_hal_conf.h_save
+2023-04-13 12:21:17,589 [INFO] CodeEngine:327 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_hal_conf.h
+2023-04-13 12:21:17,621 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\main.h_save
+2023-04-13 12:21:17,689 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\main.h
+2023-04-13 12:21:17,704 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\main.c_save
+2023-04-13 12:21:17,810 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\main.c
+2023-04-13 12:21:18,365 [INFO] ProjectBuilder:2919 - Time for Copy HAL[1] : 236mS.
+2023-04-13 12:21:18,369 [INFO] ProjectBuilder:4183 - Project Generator version: 3.18.0-B7
+2023-04-13 12:21:18,663 [INFO] ConfigFileManager:1396 - The Die is : DIE470
+2023-04-13 12:21:19,798 [INFO] ProjectBuilder:4351 - Time for Generating toolchain IDE Files: 1429mS.
+2023-04-13 12:21:19,799 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 1mS.
+2023-04-13 12:21:19,801 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.

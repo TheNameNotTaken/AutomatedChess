@@ -5,11 +5,11 @@
 // *      Author: Jeremy
 // */
 //
-//#ifndef SRC_BOARD_H_
-//#define SRC_BOARD_H_
+#ifndef SRC_BOARD_H_
+#define SRC_BOARD_H_
 //
 //#include "main.h"
-//#include <stdlib.h>
+#include <stdlib.h>
 //
 //struct move{
 //	char start[2]; //letter and number indicating starting location (ex E2)
@@ -19,18 +19,19 @@
 //	int capture; //1 if is a capture of another piece 0 otherwise
 //};
 //
-///*
-// * chess board has default value shown below
-// * uppercase letters mean that a piece is white and undercase means black
-// * legend is following:
-// * r/R = rook
-// * n/N = knight
-// * b/B = bishop
-// * k/K = king
-// * q/Q = queen
-// * p/P = pawn
-// * - = empty space
-// */
+
+/*
+ * chess board has default value shown below
+ * uppercase letters mean that a piece is white and undercase means black
+ * legend is following:
+ * r/R = rook
+ * n/N = knight
+ * b/B = bishop
+ * k/K = king
+ * q/Q = queen
+ * p/P = pawn
+ * - = empty space
+ */
 char board[8][8] = 	{{'r', 'n', 'b', 'k', 'q', 'b', 'n', 'r'},
 					 {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
 					 {'-', '-', '-', '-', '-', '-', '-', '-'},
@@ -39,6 +40,10 @@ char board[8][8] = 	{{'r', 'n', 'b', 'k', 'q', 'b', 'n', 'r'},
 					 {'-', '-', '-', '-', '-', '-', '-', '-'},
 					 {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
 					 {'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'}};
+
+
+//Next to move, 'w' for white 'b' for black
+char activeColor = 'w';
 
 // add pin assignments
 Mux masterMux = {};
@@ -105,10 +110,15 @@ void writePin(Pin* pin, int val);
 
 //Mux* newMux(Pin* pin0, Pin* pin1, Pin* pin2);
 void setMuxVal(uint16_t val, Mux* mux);
+
+//Returns board as FEN
+char* boardAsFEN(){
+
+}
 //// might also need a readMuxVal
 //
 ////char** readNewBoard();
 //struct Board* readNewBoard();
 //void updateBoard(char** newBoard);
 //
-//#endif /* SRC_BOARD_H_ */
+#endif /* SRC_BOARD_H_ */

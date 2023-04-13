@@ -17,14 +17,14 @@
 #define turnBig GPIO_PIN_2
 #define turnBigPort GPIOB
 
-#define dirSmall GPIO_PIN_7
-#define dirSmallPort GPIOD
-#define stepSmall GPIO_PIN_6
-#define stepSmallPort GPIOD
-#define slpSmall GPIO_PIN_5
+#define dirSmall GPIO_PIN_5
+#define dirSmallPort GPIOF
+#define stepSmall GPIO_PIN_3
+#define stepSmallPort GPIOF
+#define slpSmall GPIO_PIN_2
 #define slpSmallPort GPIOD
-#define rstSmall GPIO_PIN_4
-#define rstSmallPort GPIOD
+#define rstSmall GPIO_PIN_12
+#define rstSmallPort GPIOC
 #define switchSmall GPIO_PIN_5
 #define switchSmallPort GPIOD
 #define turnSmall GPIO_PIN_2
