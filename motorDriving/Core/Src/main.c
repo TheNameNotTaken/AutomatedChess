@@ -189,13 +189,18 @@ int main(void)
 //  char* arr[16] = {"Jazib\0", "Jabibi\0","Ahmad\0"};
 //  makeMenu(3, arr);
   struct coordinate location = {2140, 1805};
-//  moveToExactCoord(location);
+////  moveToExactCoord(location);
   location.x=0;
   location.y=0;
-  moveToExactCoord(location);
+//  moveToExactCoord(location);
+//  moveToCoord("H8");
   uint32_t keyNum = 16;
+  moveToExactCoord(location);
   while (1)
   {
+//	  moveToExactCoord(location);
+//	  location.y -= 10;
+
 //	  GPIO_TypeDef* colPorts[4] = {GPIOF, GPIOE, GPIOE, GPIOF};
 //	  GPIO_TypeDef* rowPorts[4] = {GPIOD, GPIOD, GPIOF, GPIOE};
 //	  uint16_t colPins[4] = {GPIO_PIN_14, GPIO_PIN_11, GPIO_PIN_9, GPIO_PIN_13};

@@ -4,27 +4,27 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define dirBig GPIO_PIN_4
-#define dirBigPort GPIOC
-#define stepBig GPIO_PIN_1
-#define stepBigPort GPIOC
-#define slpBig GPIO_PIN_3
-#define slpBigPort GPIOC
-#define rstBig GPIO_PIN_0
+#define dirBig GPIO_PIN_5
+#define dirBigPort GPIOF
+#define stepBig GPIO_PIN_3
+#define stepBigPort GPIOF
+#define slpBig GPIO_PIN_2
+#define slpBigPort GPIOD
+#define rstBig GPIO_PIN_12
 #define rstBigPort GPIOC
 #define switchBig GPIO_PIN_5
-#define switchBigPort GPIOC
+#define switchBigPort GPIOD
 #define turnBig GPIO_PIN_2
-#define turnBigPort GPIOB
+#define turnBigPort GPIOD
 
-#define dirSmall GPIO_PIN_5
-#define dirSmallPort GPIOF
-#define stepSmall GPIO_PIN_3
-#define stepSmallPort GPIOF
-#define slpSmall GPIO_PIN_2
+#define dirSmall GPIO_PIN_7
+#define dirSmallPort GPIOD
+#define stepSmall GPIO_PIN_6
+#define stepSmallPort GPIOD
+#define slpSmall GPIO_PIN_5
 #define slpSmallPort GPIOD
-#define rstSmall GPIO_PIN_12
-#define rstSmallPort GPIOC
+#define rstSmall GPIO_PIN_4
+#define rstSmallPort GPIOD
 #define switchSmall GPIO_PIN_5
 #define switchSmallPort GPIOD
 #define turnSmall GPIO_PIN_2
@@ -39,10 +39,10 @@
 //#define largestY 1802*16
 //#define smallestY 151*16
 
-#define largestX 2140*8
-#define smallestX 171
-#define largestY 14505
-#define smallestY 1312
+#define largestX 17500
+#define smallestX 125
+#define largestY 14200
+#define smallestY 900
 
 //X refers to larger space
 struct coordinate curPosition = {0,0};
