@@ -1,24 +1,83 @@
-13:55:37 **** Incremental Build of configuration Debug for project motorDriving ****
+20:45:03 **** Incremental Build of configuration Debug for project motorDriving ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:187:3: warning: implicit declaration of function 'executeInstruction' [-Wimplicit-function-declaration]
-  187 |   executeInstruction("A1H8", BLACK, QUEEN);
-      |   ^~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:197:12: warning: unused variable 'keyNum' [-Wunused-variable]
-  197 |   uint32_t keyNum = 16;
-      |            ^~~~~~
+arm-none-eabi-gcc "../Core/Src/board.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/board.d" -MT"Core/Src/board.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/board.o"
+../Core/Src/board.c:12:18: warning: initialization of 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   12 | Mux masterMux = {&masterSel0, &masterSel1, &masterSel2};
+      |                  ^
+../Core/Src/board.c:12:18: note: (near initialization for 'masterMux.sel0')
+../Core/Src/board.c:12:31: warning: initialization of 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   12 | Mux masterMux = {&masterSel0, &masterSel1, &masterSel2};
+      |                               ^
+../Core/Src/board.c:12:31: note: (near initialization for 'masterMux.sel1')
+../Core/Src/board.c:12:44: warning: initialization of 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   12 | Mux masterMux = {&masterSel0, &masterSel1, &masterSel2};
+      |                                            ^
+../Core/Src/board.c:12:44: note: (near initialization for 'masterMux.sel2')
+../Core/Src/board.c:17:15: warning: initialization of 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   17 | Mux colMux = {&colSel0, &colSel1, &colSel2};
+      |               ^
+../Core/Src/board.c:17:15: note: (near initialization for 'colMux.sel0')
+../Core/Src/board.c:17:25: warning: initialization of 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   17 | Mux colMux = {&colSel0, &colSel1, &colSel2};
+      |                         ^
+../Core/Src/board.c:17:25: note: (near initialization for 'colMux.sel1')
+../Core/Src/board.c:17:35: warning: initialization of 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   17 | Mux colMux = {&colSel0, &colSel1, &colSel2};
+      |                                   ^
+../Core/Src/board.c:17:35: note: (near initialization for 'colMux.sel2')
+../Core/Src/board.c: In function 'newMux':
+../Core/Src/board.c:92:12: warning: assignment to 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   92 |  mux->sel0 = pin0;
+      |            ^
+../Core/Src/board.c:93:12: warning: assignment to 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   93 |  mux->sel1 = pin1;
+      |            ^
+../Core/Src/board.c:94:12: warning: assignment to 'struct Pin *' from incompatible pointer type 'Pin *' [-Wincompatible-pointer-types]
+   94 |  mux->sel2 = pin2;
+      |            ^
+../Core/Src/board.c: In function 'setMuxVal':
+../Core/Src/board.c:98:14: warning: passing argument 1 of 'writePin' from incompatible pointer type [-Wincompatible-pointer-types]
+   98 |  writePin(mux->sel0, val << 2);
+      |           ~~~^~~~~~
+      |              |
+      |              struct Pin *
+In file included from ../Core/Src/board.c:1:
+../Core/Inc/board.h:100:20: note: expected 'Pin *' but argument is of type 'struct Pin *'
+  100 | void writePin(Pin* pin, int val);
+      |               ~~~~~^~~
+../Core/Src/board.c:99:14: warning: passing argument 1 of 'writePin' from incompatible pointer type [-Wincompatible-pointer-types]
+   99 |  writePin(mux->sel1, (val >> 1) & 1);
+      |           ~~~^~~~~~
+      |              |
+      |              struct Pin *
+In file included from ../Core/Src/board.c:1:
+../Core/Inc/board.h:100:20: note: expected 'Pin *' but argument is of type 'struct Pin *'
+  100 | void writePin(Pin* pin, int val);
+      |               ~~~~~^~~
+../Core/Src/board.c:100:14: warning: passing argument 1 of 'writePin' from incompatible pointer type [-Wincompatible-pointer-types]
+  100 |  writePin(mux->sel2, val >> 2);
+      |           ~~~^~~~~~
+      |              |
+      |              struct Pin *
+In file included from ../Core/Src/board.c:1:
+../Core/Inc/board.h:100:20: note: expected 'Pin *' but argument is of type 'struct Pin *'
+  100 | void writePin(Pin* pin, int val);
+      |               ~~~~~^~~
+../Core/Src/board.c: In function 'newMux':
+../Core/Src/board.c:95:1: warning: control reaches end of non-void function [-Wreturn-type]
+   95 | }
+      | ^
 arm-none-eabi-g++ -o "motorDriving.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="motorDriving.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: motorDriving.elf
  
 arm-none-eabi-size   motorDriving.elf 
 arm-none-eabi-objdump -h -S  motorDriving.elf  > "motorDriving.list"
    text	   data	    bss	    dec	    hex	filename
-  24520	    484	   1596	  26600	   67e8	motorDriving.elf
+  31112	    484	   1700	  33296	   8210	motorDriving.elf
 Finished building: default.size.stdout
  
 Finished building: motorDriving.list
  
 
-13:55:37 Build Finished. 0 errors, 2 warnings. (took 743ms)
+20:45:04 Build Finished. 0 errors, 13 warnings. (took 976ms)
 

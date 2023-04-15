@@ -4243,3 +4243,303 @@
 2023-04-13 12:21:19,798 [INFO] ProjectBuilder:4351 - Time for Generating toolchain IDE Files: 1429mS.
 2023-04-13 12:21:19,799 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 1mS.
 2023-04-13 12:21:19,801 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
+2023-04-14 18:53:54,855 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 815226384 Bytes (1017118720)
+2023-04-14 18:53:54,965 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 839763784 Bytes (1017118720)
+2023-04-14 18:53:56,991 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 736254528 Bytes (1017118720)
+2023-04-14 18:53:57,347 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-04-14 18:53:57,347 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-04-14 18:53:57,347 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-04-14 18:53:57,347 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-04-14 18:53:57,347 [INFO] CodeGenerator:692 - code generatio: config db path: C:/Users/Jeremy/.stm32cubemx/databases/DB.6.0.60/db/
+2023-04-14 18:53:57,646 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\license.tmp_save
+2023-04-14 18:53:57,801 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\license.tmp
+2023-04-14 18:53:58,008 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\gpio.tmp_save
+2023-04-14 18:53:58,115 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\gpio.tmp
+2023-04-14 18:53:58,383 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_it.c_save
+2023-04-14 18:53:58,633 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_it.c
+2023-04-14 18:53:58,649 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_it.h_save
+2023-04-14 18:53:58,762 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_it.h
+2023-04-14 18:53:58,795 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_hal_msp.c_save
+2023-04-14 18:53:58,923 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_hal_msp.c
+2023-04-14 18:53:58,933 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\system.tmp_save
+2023-04-14 18:53:59,022 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\system.tmp
+2023-04-14 18:53:59,047 [INFO] CodeEngine:303 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_hal_conf.h_save
+2023-04-14 18:53:59,178 [INFO] CodeEngine:327 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_hal_conf.h
+2023-04-14 18:53:59,227 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\main.h_save
+2023-04-14 18:53:59,366 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\main.h
+2023-04-14 18:53:59,403 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\main.c_save
+2023-04-14 18:53:59,601 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\main.c
+2023-04-14 18:54:00,608 [INFO] ProjectBuilder:2919 - Time for Copy HAL[1] : 433mS.
+2023-04-14 18:54:00,613 [INFO] ProjectBuilder:4183 - Project Generator version: 3.18.0-B7
+2023-04-14 18:54:00,939 [INFO] ConfigFileManager:1396 - The Die is : DIE470
+2023-04-14 18:54:02,196 [INFO] ProjectBuilder:4351 - Time for Generating toolchain IDE Files: 1583mS.
+2023-04-14 18:54:02,196 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
+2023-04-14 18:54:02,205 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
+2023-04-14 18:56:48,517 [INFO] ParamManager:821 - [Generic UI] PropertyChangeEvent: TAB_STATUS_CHANGED , "dont care", "never mind"
+2023-04-14 18:56:48,576 [INFO] ParamManager:821 - [Generic UI] PropertyChangeEvent: TAB_STATUS_CHANGED , "dont care", "never mind"
+2023-04-14 18:56:48,611 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,891 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,894 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:48,923 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,207 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-04-14 18:56:49,500 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-04-14 18:56:49,713 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-04-14 18:56:49,953 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,953 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,953 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,954 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,954 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,954 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,954 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,954 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,954 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,954 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:49,955 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,027 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,113 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 18:56:50,170 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:53:51,743 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 816008048 Bytes (1035993088)
+2023-04-14 19:53:51,869 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 834360176 Bytes (1035993088)
+2023-04-14 19:53:53,926 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 803325488 Bytes (1035993088)
+2023-04-14 19:53:54,127 [INFO] ProjectBuilder:2243 - IP not ready for code generation: Clock
+2023-04-14 19:58:44,608 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,620 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,623 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,623 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,623 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,623 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,623 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,623 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,623 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,639 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,693 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,698 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,698 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,698 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,698 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,698 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,698 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,698 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,702 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,702 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,702 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,704 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,704 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,704 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,704 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,704 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,704 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,704 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,704 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,725 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,790 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,790 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,790 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,790 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,790 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,796 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:58:44,848 [INFO] ADCParametersView:113 -                Rank 1 : false
+2023-04-14 19:59:11,463 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,514 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,579 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,585 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,585 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,585 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,586 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,586 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,586 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:22,637 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 19:59:52,855 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 884392552 Bytes (1035993088)
+2023-04-14 19:59:52,984 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 684200112 Bytes (1035993088)
+2023-04-14 19:59:55,126 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 683582256 Bytes (1035993088)
+2023-04-14 19:59:55,503 [INFO] ProjectBuilder:2243 - IP not ready for code generation: Clock
+2023-04-14 20:00:08,230 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Exception in thread "AWT-EventQueue-0" java.lang.ClassCastException: class sun.awt.windows.WEmbeddedFrame cannot be cast to class javax.swing.JFrame (sun.awt.windows.WEmbeddedFrame and javax.swing.JFrame are in module java.desktop of loader 'bootstrap')
+2023-04-14 20:00:08,238 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.clock.ClockConfigurationView.activatePlugin(ClockConfigurationView.java:424)
+2023-04-14 20:00:08,238 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.maingui.MainPanel$1.stateChanged(MainPanel.java:357)
+2023-04-14 20:00:08,238 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.fireStateChanged(JTabbedPane.java:418)
+2023-04-14 20:00:08,238 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane$ModelListener.stateChanged(JTabbedPane.java:269)
+2023-04-14 20:00:08,246 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.DefaultSingleSelectionModel.fireStateChanged(DefaultSingleSelectionModel.java:143)
+2023-04-14 20:00:08,246 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.DefaultSingleSelectionModel.setSelectedIndex(DefaultSingleSelectionModel.java:74)
+2023-04-14 20:00:08,246 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.setSelectedIndexImpl(JTabbedPane.java:622)
+2023-04-14 20:00:08,246 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.setSelectedIndex(JTabbedPane.java:597)
+2023-04-14 20:00:08,246 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.plaf.basic.BasicTabbedPaneUI$Handler.mousePressed(BasicTabbedPaneUI.java:4090)
+2023-04-14 20:00:08,246 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6632)
+2023-04-14 20:00:08,254 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3342)
+2023-04-14 20:00:08,254 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.processEvent(Component.java:6400)
+2023-04-14 20:00:08,260 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
+2023-04-14 20:00:08,260 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
+2023-04-14 20:00:08,260 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
+2023-04-14 20:00:08,263 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
+2023-04-14 20:00:08,263 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
+2023-04-14 20:00:08,263 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4544)
+2023-04-14 20:00:08,263 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
+2023-04-14 20:00:08,263 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
+2023-04-14 20:00:08,263 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
+2023-04-14 20:00:08,271 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
+2023-04-14 20:00:08,271 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2023-04-14 20:00:08,271 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2023-04-14 20:00:08,271 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2023-04-14 20:00:08,271 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2023-04-14 20:00:08,276 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
+2023-04-14 20:00:08,276 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+2023-04-14 20:00:08,279 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
+2023-04-14 20:00:08,279 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2023-04-14 20:00:08,279 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2023-04-14 20:00:08,282 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+2023-04-14 20:00:08,284 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2023-04-14 20:00:08,286 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2023-04-14 20:00:08,287 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2023-04-14 20:00:08,287 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2023-04-14 20:00:08,287 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2023-04-14 20:00:08,287 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2023-04-14 20:00:11,555 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,557 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,572 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,619 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:11,635 [INFO] ADCParametersView:113 -                Rank 1 : true
+2023-04-14 20:00:16,939 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 837171008 Bytes (1035993088)
+2023-04-14 20:00:17,035 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 856045376 Bytes (1035993088)
+2023-04-14 20:00:19,804 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 780652160 Bytes (1035993088)
+2023-04-14 20:00:20,130 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-04-14 20:00:20,133 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2023-04-14 20:00:20,133 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-04-14 20:00:20,133 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-04-14 20:00:20,134 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-04-14 20:00:20,134 [INFO] CodeGenerator:692 - code generatio: config db path: C:/Users/Jeremy/.stm32cubemx/databases/DB.6.0.60/db/
+2023-04-14 20:00:20,456 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\license.tmp_save
+2023-04-14 20:00:20,568 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\license.tmp
+2023-04-14 20:00:20,840 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\gpio.tmp_save
+2023-04-14 20:00:20,946 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\gpio.tmp
+2023-04-14 20:00:21,436 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_it.c_save
+2023-04-14 20:00:21,623 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_it.c
+2023-04-14 20:00:21,638 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_it.h_save
+2023-04-14 20:00:21,717 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_it.h
+2023-04-14 20:00:21,744 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_hal_msp.c_save
+2023-04-14 20:00:21,894 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\stm32l4xx_hal_msp.c
+2023-04-14 20:00:21,920 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\system.tmp_save
+2023-04-14 20:00:22,023 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\MXTmpFiles\system.tmp
+2023-04-14 20:00:22,047 [INFO] CodeEngine:303 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_hal_conf.h_save
+2023-04-14 20:00:22,191 [INFO] CodeEngine:327 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\stm32l4xx_hal_conf.h
+2023-04-14 20:00:22,247 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\main.h_save
+2023-04-14 20:00:22,410 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Inc\main.h
+2023-04-14 20:00:22,430 [INFO] CodeEngine:247 - oldGeneratedFile, C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\main.c_save
+2023-04-14 20:00:22,595 [INFO] CodeEngine:271 - Generated code: C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\Core\Src\main.c
+2023-04-14 20:00:23,444 [INFO] ProjectBuilder:2919 - Time for Copy HAL[1] : 363mS.
+2023-04-14 20:00:23,447 [INFO] ProjectBuilder:4183 - Project Generator version: 3.18.0-B7
+2023-04-14 20:00:23,765 [INFO] ConfigFileManager:1396 - The Die is : DIE470
+2023-04-14 20:00:25,049 [INFO] ProjectBuilder:4351 - Time for Generating toolchain IDE Files: 1602mS.
+2023-04-14 20:00:25,049 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
+2023-04-14 20:00:25,053 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
