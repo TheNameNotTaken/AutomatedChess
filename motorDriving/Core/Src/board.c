@@ -41,6 +41,8 @@ char board[8][8] = 	{{'r', 'n', 'b', 'k', 'q', 'b', 'n', 'r'},
 //Next to move, 'w' for white 'b' for black
 char activeColor = 'w';
 
+char playerColor = 'w';
+
 char pieces[24] = {'p', 'r', 'n', 'b', 'q', 'k', 'P', 'R', 'N', 'B', 'Q', 'K'};
 
 uint32_t hallValues[12][8][8];

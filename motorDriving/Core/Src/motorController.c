@@ -62,7 +62,7 @@ void motorSetup(){
 struct coordinate convertToCoord(char* square){
 	struct coordinate coord;
 	coord.x = ((square[0] - 'A'))*((largestX-smallestX)/7)+smallestX;
-	coord.y = ((atoi(&square[1])-1))*((largestY-smallestY)/7)+smallestY;
+	coord.y = abs(atoi(&square[1])-8)*((largestY-smallestY)/7)+smallestY;
 		if(coord.x<smallestX || coord.x>largestX || coord.y<smallestY || coord.y>largestY){
 		printf("square %s doesn't exist or handled incorrectly", square); //TODO display on board
 		exit(1);

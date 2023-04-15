@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include "main.h"
 
-//extern UART_HandleTypeDef huart3;
 
 //uint8_t clear[2] = {0x7C,0x00};
 //uint8_t buff[10] = {0x7C, 0x0C, 0x00 , 0x0A , 0x32 , 0x3C, 0x01};
@@ -23,9 +22,14 @@
 //uint8_t box6[] = {0x7C ,0x0F, 0x14 , 0x75 - 20, 0x8C , 0x7F - 20, 0x01};
 //uint8_t bo7[] = {0x7C ,0x0F, 0x14 , 0x75, 0x8C , 0x7F, 0x01};
 //uint8_t toggle[] = {0x7C,0x12};
+extern char buffer[100];
 
 void makeMenu(int length, char **options);
 
 void clearDisplay();
+
+int sendInformation(char* data);
+
+char* sendInformationGetData(char* data, char* destination, int length, int timeRecieving);
 
 #endif

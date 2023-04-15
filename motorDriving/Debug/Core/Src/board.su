@@ -1,7 +1,7 @@
-../Core/Src/board.c:49:8:readCurrentBoard	32	static
-../Core/Src/board.c:85:6:updateBoard	16	static
-../Core/Src/board.c:90:6:newMux	32	static
-../Core/Src/board.c:97:6:setMuxVal	16	static
-../Core/Src/board.c:103:6:new_pin	24	static
-../Core/Src/board.c:111:5:readPin	16	static
-../Core/Src/board.c:115:6:writePin	16	static
+../Core/Src/board.c:52:8:readCurrentBoard	32	static
+../Core/Src/board.c:88:6:updateBoard	24	static
+../Core/Src/board.c:95:6:newMux	32	static
+../Core/Src/board.c:102:6:setMuxVal	16	static
+../Core/Src/board.c:108:6:new_pin	24	static
+../Core/Src/board.c:116:5:readPin	16	static
+../Core/Src/board.c:120:6:writePin	16	static
