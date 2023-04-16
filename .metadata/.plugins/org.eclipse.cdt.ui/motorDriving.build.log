@@ -1,33 +1,10 @@
-19:02:57 **** Incremental Build of configuration Debug for project motorDriving ****
+16:52:55 **** Incremental Build of configuration Debug for project motorDriving ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/motorController.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/motorController.d" -MT"Core/Src/motorController.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/motorController.o"
-../Core/Src/motorController.c: In function 'stepForward':
-../Core/Src/motorController.c:226:6: warning: unused variable 'y' [-Wunused-variable]
-  226 |  int y = curPosition.y;
-      |      ^
-../Core/Src/motorController.c: In function 'stepBack':
-../Core/Src/motorController.c:235:6: warning: unused variable 'y' [-Wunused-variable]
-  235 |  int y = curPosition.y;
-      |      ^
-../Core/Src/motorController.c: In function 'stepRight':
-../Core/Src/motorController.c:243:6: warning: unused variable 'x' [-Wunused-variable]
-  243 |  int x = curPosition.x;
-      |      ^
-../Core/Src/motorController.c: In function 'stepLeft':
-../Core/Src/motorController.c:252:6: warning: unused variable 'x' [-Wunused-variable]
-  252 |  int x = curPosition.x;
-      |      ^
-arm-none-eabi-g++ -o "motorDriving.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Jeremy\Documents\W23\373\finalProject\AutomatedChess\motorDriving\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="motorDriving.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: motorDriving.elf
- 
 arm-none-eabi-size   motorDriving.elf 
-arm-none-eabi-objdump -h -S  motorDriving.elf  > "motorDriving.list"
    text	   data	    bss	    dec	    hex	filename
-  39580	   1192	   2088	  42860	   a76c	motorDriving.elf
+  40268	   1192	   2992	  44452	   ada4	motorDriving.elf
 Finished building: default.size.stdout
  
-Finished building: motorDriving.list
- 
 
-19:02:59 Build Finished. 0 errors, 4 warnings. (took 1s.868ms)
+16:52:56 Build Finished. 0 errors, 0 warnings. (took 526ms)
 

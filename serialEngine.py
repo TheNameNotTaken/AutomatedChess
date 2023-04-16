@@ -66,7 +66,8 @@ def fenToArt(fen):
     return (''.join(['| '*8if h=='8'else'| '*int(h)if h.isdigit()else'|\n'if h=='/'else'|'+h for h in fen])+'|')
 
 def getBoardState():
-    ser.write(bytes(fenToArt(stockfish.get_fen_position().split()[0]), 'ascii'))
+    ser.write(bytes(fenToArt(stockfish.get_fen_position().split()[0])[:50], 'ascii'))
+    ser.write(bytes(fenToArt(stockfish.get_fen_position().split()[0])[50:], 'ascii'))
 
 # always check move first
 def makeMove():
@@ -76,7 +77,6 @@ def makeMove():
 
 def computerMove():
     move = stockfish.get_best_move()
-    print(move.upper())
     ser.write(bytes(stockfish.get_best_move().upper(),'ascii'))
     stockfish.make_moves_from_current_position([move])
 

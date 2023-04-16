@@ -212,20 +212,22 @@ int main(void)
   motorSetup();
   clearDisplay();
   makeMenu(5, mainMenu);
+  setMagnet(BLACK);
+  moveToCoord("A1");
+  moveToCoord("A8");
+  moveToCoord("H8");
+  moveToCoord("H1");
 //  moveToCoord("A1");
-//  moveToCoord("A8");
-//  moveToCoord("H8");
+//  executeInstruction("H1G8", BLACK, QUEEN);
 //  moveToCoord("H1");
-//  moveToCoord("A1");
-//  executeInstruction("A1H8", BLACK, QUEEN);
 //
 ////  char* arr[16] = {"Jazib\0", "Jabibi\0","Ahmad\0"};
 ////  makeMenu(3, arr);
-//  struct coordinate location = {2140, 1805};
+  struct coordinate location = {2140, 1805};
 //  moveToExactCoord(location);
-//  location.x=0;
-//  location.y=0;
-//  moveToExactCoord(location);
+  location.x=0;
+  location.y=0;
+  moveToExactCoord(location);
   uint32_t keyNum = 16;
   while (1)
   {
@@ -248,6 +250,18 @@ int main(void)
 
 
 	//receive hall sensor input
+	if(keyNum == 2){
+		stepForward();
+	}
+	if(keyNum == 4){
+		stepLeft();
+	}
+	if(keyNum == 6){
+		stepRight();
+	}
+	if(keyNum == 5){
+		stepBack();
+	}
 
 	pastState = currState;
 	if(currState == startScreen){
@@ -263,7 +277,7 @@ int main(void)
 		else if(keyNum == 4){
 			//based on information of whose turn it is display either opponent or your move
 			//easy to figure out if default configuration is setup
-			//otherwise if custom then have to wait for XBEEE response or from the reading from the board to determine which side to display
+			//otherwise if custom then have to wait for XBEE response or from the reading from the board to determine which side to display
 			//update variable regarding if its your Move or  enemy Move
 			if(activeColor == playerColor){
 				currState = yourMove ;
@@ -399,9 +413,9 @@ int main(void)
 			makeMenu(9, difficultyLevel);
 		}
 		else if(currState == yourMove){
-			char board[100];
-			sendInformationGetData("board state\r", board, 100, 10000);
-			makeMenu(1, board);
+//			char board[100];
+//			sendInformationGetData("board state\r", board, 100, 10000);
+//			makeMenu(1, board);
 			 makeMenu(2, yourTurn);
 		}
 		else if(currState == wrongMove){

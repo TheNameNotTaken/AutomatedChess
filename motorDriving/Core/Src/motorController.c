@@ -39,10 +39,10 @@
 //#define largestY 1802*16
 //#define smallestY 151*16
 
-#define largestX 17500
-#define smallestX 125
-#define largestY 14200
-#define smallestY 900
+#define largestX 16800
+#define smallestX 19
+#define largestY 13500
+#define smallestY 1000
 
 //X refers to larger space
 struct coordinate curPosition = {0,0};
@@ -61,8 +61,8 @@ void motorSetup(){
 //Square is input of form "{letter}{number}" for example "A4"
 struct coordinate convertToCoord(char* square){
 	struct coordinate coord;
-	coord.x = ((square[0] - 'A'))*((largestX-smallestX)/7)+smallestX;
-	coord.y = abs(atoi(&square[1])-8)*((largestY-smallestY)/7)+smallestY;
+	coord.x = abs((square[0] - 'A')-7)*((largestX-smallestX)/7)+smallestX;
+	coord.y = (atoi(&square[1])-1)*((largestY-smallestY)/7)+smallestY;
 		if(coord.x<smallestX || coord.x>largestX || coord.y<smallestY || coord.y>largestY){
 		printf("square %s doesn't exist or handled incorrectly", square); //TODO display on board
 		exit(1);

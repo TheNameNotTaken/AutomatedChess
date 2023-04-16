@@ -4,4 +4,5 @@
 !motorDriving/Core/Src/*
 !motorDriving/Core/Inc/*
 !stockfish/*
+!motorDriving/motorDriving.ioc
 !*/
