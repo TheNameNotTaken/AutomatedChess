@@ -14,13 +14,10 @@
 extern UART_HandleTypeDef huart3;
 extern UART_HandleTypeDef huart2;
 
-char buffer[100];
+char buffer[1000];
 
 void makeMenu(int length, char* options[100])
 {
-	clearDisplay();//TODO delete
-	uint8_t box[] = {0x7C ,0x0F, 0x14 , 0x75, 0x8C , 0x7F, 0x01};
-	//uint8_t clear[2] = {0x7C,0x00};
 	uint8_t buff[10] = {0x7C, 0x0C, 0x00 , 0x0A , 0x32 , 0x3C, 0x01};
 	uint8_t xoff[5] = {0x7C, 0x18, 0x50 - 120};
 	uint8_t yoff[5] = {0x7C, 0x19, 0x50+40};
@@ -28,11 +25,7 @@ void makeMenu(int length, char* options[100])
 
 
 	for(int i=0; i<length; i++){
-		// char buffer[100];
-		// sprintf(buffer,options[i]);
-		// HAL_UART_Transmit (&huart3, box, sizeof (box), 150);
-		// box[3] = box[3] - 20;
-		// box[5] = box[5] - 20;
+
 		sprintf(buffer,options[i]);
 		HAL_UART_Transmit (&huart3, xoff, sizeof (xoff), 150);
 		HAL_UART_Transmit (&huart3, yoff, sizeof (yoff), 150);
@@ -42,14 +35,25 @@ void makeMenu(int length, char* options[100])
 	}
 	HAL_Delay(1000);
 	HAL_Delay(1000);
-	// HAL_Delay(1000);
-	// HAL_Delay(1000);
-	// HAL_Delay(1000);
-	// HAL_Delay(1000);
-	// HAL_Delay(1000);
-	// HAL_Delay(1000);
-	//  clearDisplay();//TODO delete
+}
 
+void displayChess(char board[1000]){
+	clearDisplay();
+
+	uint8_t xoff[5] = {0x7C, 0x18, 0x50 - 120};
+	uint8_t yoff[5] = {0x7C, 0x19, 0x50+40};
+	HAL_UART_Transmit(&huart3,(uint8_t*)board,strlen((const char*)board),10000);
+	for(int i=0; i<strlen((const char*)board); i++){
+		sprintf(buffer, board[i]);
+		buffer[1] = '\0';
+		if(buffer[0] == '\n'){
+			yoff[2] = yoff[2] - 14;
+			continue;
+		}
+		HAL_UART_Transmit (&huart3, xoff, sizeof (xoff), 150);
+		HAL_UART_Transmit (&huart3, yoff, sizeof (yoff), 150);
+		HAL_UART_Transmit(&huart3,(uint8_t*)buffer,strlen((const char*)buffer),10);
+	}
 }
 
 void clearDisplay(){
@@ -59,7 +63,7 @@ void clearDisplay(){
 
 int sendInformation(char* data){
 	int ack = 0;
-	for(int i=0; i<5; i++){
+	for(int i=0; i<3; i++){
 		sprintf(buffer, data);
 		HAL_UART_Transmit(&huart2, buffer, strlen(buffer), 500);
 		HAL_UART_Receive(&huart2, buffer, 12, 1000);

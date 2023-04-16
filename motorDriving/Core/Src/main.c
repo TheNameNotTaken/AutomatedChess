@@ -226,8 +226,6 @@ int main(void)
 //  location.x=0;
 //  location.y=0;
 //  moveToExactCoord(location);
-  moveToCoord("A8");
-  moveToCoord("A1");
   uint32_t keyNum = 16;
   while (1)
   {
@@ -401,6 +399,9 @@ int main(void)
 			makeMenu(9, difficultyLevel);
 		}
 		else if(currState == yourMove){
+			char board[100];
+			sendInformationGetData("board state\r", board, 100, 10000);
+			makeMenu(1, board);
 			 makeMenu(2, yourTurn);
 		}
 		else if(currState == wrongMove){

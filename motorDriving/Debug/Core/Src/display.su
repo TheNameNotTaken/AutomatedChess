@@ -1,4 +1,0 @@
-../Core/Src/display.c:19:6:makeMenu	56	static
-../Core/Src/display.c:55:6:clearDisplay	16	static
-../Core/Src/display.c:60:5:sendInformation	24	static
-../Core/Src/display.c:76:7:sendInformationGetData	32	static

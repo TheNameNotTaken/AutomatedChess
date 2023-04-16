@@ -1,9 +1,0 @@
-../Core/Src/motorController.c:50:6:motorSetup	8	static
-../Core/Src/motorController.c:62:19:convertToCoord	24	static
-../Core/Src/motorController.c:74:6:moveToCoord	40	static
-../Core/Src/motorController.c:122:6:moveToExactCoord	32	static
-../Core/Src/motorController.c:172:6:executeInstruction	48	static
-../Core/Src/motorController.c:220:6:stepForward	16	static
-../Core/Src/motorController.c:228:6:stepBack	16	static
-../Core/Src/motorController.c:237:6:stepRight	16	static
-../Core/Src/motorController.c:245:6:stepLeft	16	static

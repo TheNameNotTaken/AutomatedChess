@@ -62,8 +62,11 @@ def checkMove():
     ser.write(b'ack')
     ser.write(bytes(str(stockfish.is_move_correct(move)), 'ascii'))
 
+def fenToArt(fen):
+    return (''.join(['| '*8if h=='8'else'| '*int(h)if h.isdigit()else'|\n'if h=='/'else'|'+h for h in fen])+'|')
+
 def getBoardState():
-    ser.write(bytes(stockfish.get_board_visual(), 'ascii'))
+    ser.write(bytes(fenToArt(stockfish.get_fen_position().split()[0]), 'ascii'))
 
 # always check move first
 def makeMove():
