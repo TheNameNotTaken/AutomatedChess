@@ -1,6 +1,6 @@
 # Ignore everything
 *
-!serialEngine.py
-!.gitignore
-!*/motorDriving/Core/Src/*
-!*/motorDriving/Core/Inc/*
+# !serialEngine.py
+# !.gitignore
+# !motorDriving/Core/Src/*
+# !motorDriving/Core/Inc/*
