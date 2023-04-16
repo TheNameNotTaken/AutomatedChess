@@ -40,7 +40,7 @@ extern char board[8][8];
 
 //
 //// reads the state of the new board and creates
-//// a DYNAMICALLY allocated board that has to be deleted
+////board a DYNAMICALLY allocated board that has to be deleted
 char** readCurrentBoard();
 //
 ////update board to new board given full board
@@ -104,7 +104,7 @@ void setMuxVal(uint16_t val, Mux* mux);
 
 //Returns board as FEN
 char* boardAsFEN();
-
+//void custom_readCurrentBoard();
 //// might also need a readMuxVal
 //
 ////char** readNewBoard();

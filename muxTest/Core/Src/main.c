@@ -181,11 +181,17 @@ int main(void)
 
 	for (int i = 0; i < 8; ++i) {
 		selectHall(i);
-		HAL_ADC_Start(&hadc1);
-		HAL_ADC_PollForConversion(&hadc1, 0xffffffff);
-		ADC_VAL = HAL_ADC_GetValue(&hadc1);
 
-		HAL_Delay(100);
+		uint32_t vals[10];
+		for (int j = 0; j < 20; ++j){
+			HAL_ADC_Start(&hadc1);
+		HAL_ADC_PollForConversion(&hadc1, 0xffffffff);
+		ADC_VAL += HAL_ADC_GetValue(&hadc1);
+
+		}
+		ADC_VAL = ADC_VAL/20;
+
+		HAL_Delay(10);
 	}
 
 
