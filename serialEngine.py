@@ -52,6 +52,7 @@ def setupBoard():
         ser.write(b'ack')
         stockfish.set_fen_position(fen)
     else:
+        print('invalid position')
         ser.write(b'invalid position\r')
 
 def setupDefault():
@@ -79,6 +80,9 @@ def computerMove():
     move = stockfish.get_best_move()
     ser.write(bytes(stockfish.get_best_move().upper(),'ascii'))
     stockfish.make_moves_from_current_position([move])
+    print(move)
+    print(fenToArt(stockfish.get_fen_position()))
+
 
 def isGameOver():
     eval = stockfish.get_evaluation()
@@ -107,7 +111,7 @@ stockfish = Stockfish(path="/Users/Jeremy/Documents/W23/373/finalProject/Automat
 ser = serial.Serial('COM12', 9600)
 
 while True:
-    request = ser.read_until(expected=serial.CR, size=50)
+    request = ser.read_until(expected=serial.CR, size=100)
     print(request)
     if(request == b'difficulty\r'):
         ser.write(b'ack')

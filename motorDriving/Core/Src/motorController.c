@@ -1,5 +1,6 @@
 #include "motorController.h"
 #include "magnetController.h"
+#include "board.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -39,9 +40,11 @@
 //#define largestY 1802*16
 //#define smallestY 151*16
 
-#define largestX 16800
+//#define largestX 16800
+#define largestX 1000
 #define smallestX 19
-#define largestY 13500
+//#define largestY 13500
+#define largestY 100
 #define smallestY 1000
 
 //X refers to larger space
@@ -169,7 +172,7 @@ void moveToExactCoord(struct coordinate pos){
 // move come in the form of two squares, ex "e2e4"
 // color is an enum from magnetController BLACK, WHITE, or STOP
 // piece is an enum from motorController PAWN ROOK KNIGHT BISHOP QUEEN or KING
-void executeInstruction(char* move, int color, int piece){
+void executeInstruction(char* move, int color){
 	setMagnet(STOP);
 	char start[3];
 	char goal[3];
@@ -186,7 +189,9 @@ void executeInstruction(char* move, int color, int piece){
 
 	setMagnet(color);
 
-	if(piece == KNIGHT){
+	char piece = pieceAtSquare(start);
+
+	if(piece == 'n' || piece == 'N'){
 		//TODO integrate with display
 		int xDelta = goal[0]-start[0];
 		int yDelta = goal[1]-start[1];

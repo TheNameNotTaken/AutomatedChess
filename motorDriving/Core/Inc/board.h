@@ -37,12 +37,19 @@
  * - = empty space
  */
 extern char board[8][8];
+extern char newBoard[8][8];
 
-//
+extern int numToPickUp;
+extern char toPickUp[4][3];
+
+extern uint32_t board_defaults_calculated[8][8];
 //// reads the state of the new board and creates
 //// a DYNAMICALLY allocated board that has to be deleted
 char** readCurrentBoard();
-//
+
+//the main one being used
+void custom_readCurrentBoard(char (*board)[8]);
+
 ////update board to new board given full board
 void updateBoard(char** newBoard);
 //
@@ -103,12 +110,22 @@ void writePin(Pin* pin, int val);
 void setMuxVal(uint16_t val, Mux* mux);
 
 //Returns board as FEN
-char* boardAsFEN();
+void boardToFEN(char board[8][8], char FEN[80]);
 
-//// might also need a readMuxVal
-//
-////char** readNewBoard();
-//struct Board* readNewBoard();
-//void updateBoard(char** newBoard);
-//
+//Finds move from one board to another
+void findMoveFromBoards(char** newBoard, char* move);
+
+void checkMoveForPickup(char move[5]);
+
+char pieceAtSquare(char* square);
+void updatePieceAtSquare(char* square, char value);
+
+void moveOnBoard(char move[5]);
+void print_board(uint32_t (*board)[8]);
+void print_board_char(char (*board)[8]);
+void calibrate_hall_sensors(uint32_t (*defaults)[8]);
+void custom_readCurrentBoard(char (*board)[8]);
+void blackwhite_readCurrentBoard(char (*board)[8]);
+void convert_to_blackwhite(char (*bwboard)[8], char (*clboard)[8]);
+
 #endif /* SRC_BOARD_H_ */

@@ -22,11 +22,11 @@
 //uint8_t box6[] = {0x7C ,0x0F, 0x14 , 0x75 - 20, 0x8C , 0x7F - 20, 0x01};
 //uint8_t bo7[] = {0x7C ,0x0F, 0x14 , 0x75, 0x8C , 0x7F, 0x01};
 //uint8_t toggle[] = {0x7C,0x12};
-extern char buffer[1000];
+extern char buffer[100];
 
 void makeMenu(int length, char **options);
 
-void displayChess(char board[1000]);
+void displayChess(char board[8][8]);
 
 void clearDisplay();
 

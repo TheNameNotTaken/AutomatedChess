@@ -14,9 +14,9 @@
 extern UART_HandleTypeDef huart3;
 extern UART_HandleTypeDef huart2;
 
-char buffer[1000];
+char buffer[100];
 
-void makeMenu(int length, char* options[100])
+void makeMenu(int length, char** options)
 {
 	uint8_t buff[10] = {0x7C, 0x0C, 0x00 , 0x0A , 0x32 , 0x3C, 0x01};
 	uint8_t xoff[5] = {0x7C, 0x18, 0x50 - 120};
@@ -34,26 +34,31 @@ void makeMenu(int length, char* options[100])
 
 	}
 	HAL_Delay(1000);
-	HAL_Delay(1000);
 }
 
-void displayChess(char board[1000]){
+void displayChess(char board[8][8]){
 	clearDisplay();
-
-	uint8_t xoff[5] = {0x7C, 0x18, 0x50 - 120};
-	uint8_t yoff[5] = {0x7C, 0x19, 0x50+40};
-	HAL_UART_Transmit(&huart3,(uint8_t*)board,strlen((const char*)board),10000);
-	for(int i=0; i<strlen((const char*)board); i++){
-		sprintf(buffer, board[i]);
-		buffer[1] = '\0';
-		if(buffer[0] == '\n'){
-			yoff[2] = yoff[2] - 14;
-			continue;
-		}
+	uint8_t xoff[5] = {0x7C, 0x18, 0x50-65};
+	uint8_t yoff[5] = {0x7C, 0x19, 0x50+50};
+//	HAL_UART_Transmit(&huart3,(uint8_t*)board,strlen((const char*)board),10000);
+	for(int i=0; i<8; i++){
+		sprintf(buffer, "%c %c %c %c %c %c %c %c", board[i][0], board[i][1], board[i][2], board[i][3], board[i][4], board[i][5], board[i][6], board[i][7]);
 		HAL_UART_Transmit (&huart3, xoff, sizeof (xoff), 150);
 		HAL_UART_Transmit (&huart3, yoff, sizeof (yoff), 150);
-		HAL_UART_Transmit(&huart3,(uint8_t*)buffer,strlen((const char*)buffer),10);
+		HAL_UART_Transmit(&huart3,(uint8_t*)buffer,16,10);
+		yoff[2] = yoff[2] - 12;
 	}
+	xoff[2] = 0x50-120;
+	yoff[2] = yoff[2] - 4;
+	sprintf(buffer, "Does this look right?");
+	HAL_UART_Transmit (&huart3, xoff, sizeof (xoff), 150);
+	HAL_UART_Transmit (&huart3, yoff, sizeof (yoff), 150);
+	HAL_UART_Transmit(&huart3,(uint8_t*)buffer,strlen((const char*)buffer),10);
+	yoff[2] = yoff[2] - 12;
+	sprintf(buffer, "1.Yes        2.No");
+	HAL_UART_Transmit (&huart3, xoff, sizeof (xoff), 150);
+	HAL_UART_Transmit (&huart3, yoff, sizeof (yoff), 150);
+	HAL_UART_Transmit(&huart3,(uint8_t*)buffer,strlen((const char*)buffer),10);
 }
 
 void clearDisplay(){

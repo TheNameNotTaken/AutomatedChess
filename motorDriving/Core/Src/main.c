@@ -25,6 +25,7 @@
 #include "magnetController.h"
 #include "board.h"
 #include "display.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,6 +45,7 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
+UART_HandleTypeDef hlpuart1;
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 
@@ -57,17 +59,8 @@ static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_USART3_UART_Init(void);
+static void MX_LPUART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
-#ifdef __GNUC__
-#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif /* __GNUC__ */
-PUTCHAR_PROTOTYPE
-{
-//  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 0xFFFF);
-  return ch;
-}
 
 /* USER CODE END PFP */
 
@@ -78,15 +71,20 @@ char* colorSel[16] = {"1.Black\0", "2.White\0", "3.Main Menu"};
 char* playerType[16] = {"1.Human\0", "2.CPU\0", "3.Main Menu"};
 char* difficultyLevel[17] = {"CHOOSE DIFFICULTY\0", "1. level 1\0", "2. level 2\0", "3. level 3\0", "4. level 4\0", "5. level 5\0", "6. level 6\0", "7. level 7\0", "8. level 8\0"};
 char* yourTurn[16] = {"Your Turn\0", "1.GO\0"};
-char* chooseFirst[30] = {"Who's turn is it?", "1.black", "2.white"};
+char* chooseFirst[30] = {"Who's turn is it?", "1.Black", "2.White"};
 char* invalid[16] = {"Invalid Move Try Again\0", "1.GO\0"};
 char* gameOver[16] = {"Game Over\0","*White Won*\0" ,"1.Play Again(Main Menu)\0"};
 char* configuration[16] = {"1.Default\0","2.Custom\0"};
 char* opponentMove[16] = {"Opponent Move\0"};
-char * pickPieces[16] = {"\0"};
-//opponent Move
+char* pickPieces[16] = {"\0"};
+char* askRow[32] = {"What row?", "1. 1", "2. 2", "3. 3", "4. 4", "5. 5", "6. 6", "7. 7", "8. 8"};
+char* askCol[32] = {"What column?", "1. A", "2. B", "3. C", "4. D", "5. E", "6. F", "7. G", "8. H"};
+char* askPiece[16] = {"What piece is right?", "1.P     2.p", "3.R     4.r", "5.N     6.n", "7.B     8.b", "9.Q     A.q", "B.K     C.k"};
 
-enum State {whoFirst, startScreen, difficulty, color, type, yourMove, wrongMove, endGame, enemyMove, config , init, determineSide};
+//opponent Move
+char move[5];
+
+enum State {pickPieceState, askPieceState, askColState, askRowState, validBoardState, whoFirst, startScreen, difficulty, color, type, yourMove, wrongMove, endGame, enemyMove, config , init, determineSide};
 enum State currState = startScreen;
 enum State pastState = init;
 
@@ -94,6 +92,10 @@ enum State pastState = init;
 char humanAi = 'a';
 extern char playerColor;
 extern char activeColor;
+int defaultBoard = 0;
+
+int selSquareRow = 0;
+int selSquareCol = 0;
 
 uint32_t keyValue(GPIO_TypeDef* colPorts[], GPIO_TypeDef* rowPorts[], uint16_t colPins[], uint16_t rowPins[]) {
 
@@ -195,6 +197,7 @@ int main(void)
   MX_ADC1_Init();
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
+  MX_LPUART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -212,25 +215,30 @@ int main(void)
   motorSetup();
   clearDisplay();
   makeMenu(5, mainMenu);
-  setMagnet(BLACK);
-  moveToCoord("A1");
-  moveToCoord("A8");
-  moveToCoord("H8");
-  moveToCoord("H1");
+//  setMagnet(BLACK);
+//  moveToCoord("A1");
+//  moveToCoord("A8");
+//  moveToCoord("H8");
+//  moveToCoord("H1");
 //  moveToCoord("A1");
 //  executeInstruction("H1G8", BLACK, QUEEN);
 //  moveToCoord("H1");
-//
+  calibrate_hall_sensors(board_defaults_calculated);
+  print_board(board_defaults_calculated);
 ////  char* arr[16] = {"Jazib\0", "Jabibi\0","Ahmad\0"};
 ////  makeMenu(3, arr);
-  struct coordinate location = {2140, 1805};
+//  struct coordinate location = {2140, 1805};
 //  moveToExactCoord(location);
-  location.x=0;
-  location.y=0;
-  moveToExactCoord(location);
-  uint32_t keyNum = 16;
+//  location.x=0;
+//  location.y=0;
+//  moveToExactCoord(location);
   while (1)
   {
+	  while(1){
+		custom_readCurrentBoard(board);
+		print_board_char(board);
+	  }
+	 uint32_t keyNum = 16;
 	//1:, r2, pd8
 	//2:  r3, pf15
 	//3:  c1, pf14
@@ -249,19 +257,18 @@ int main(void)
 	keyNum = keyValue(colPorts, rowPorts, colPins, rowPins);
 
 
-	//receive hall sensor input
-	if(keyNum == 2){
-		stepForward();
-	}
-	if(keyNum == 4){
-		stepLeft();
-	}
-	if(keyNum == 6){
-		stepRight();
-	}
-	if(keyNum == 5){
-		stepBack();
-	}
+//	if(keyNum == 2){
+//		stepForward();
+//	}
+//	if(keyNum == 4){
+//		stepLeft();
+//	}
+//	if(keyNum == 6){
+//		stepRight();
+//	}
+//	if(keyNum == 5){
+//		stepBack();
+//	}
 
 	pastState = currState;
 	if(currState == startScreen){
@@ -275,6 +282,17 @@ int main(void)
 			currState = config;
 		}
 		else if(keyNum == 4){
+			if(defaultBoard == 0){
+				sendInformation("default setup\r");
+			}
+			else{
+				sendInformation("setup\r");
+				char info[100];
+				char FEN[80] = "\0";
+				boardToFEN(board, FEN);
+				sprintf(info, "%s\r", FEN);
+				sendInformation(info);
+			}
 			//based on information of whose turn it is display either opponent or your move
 			//easy to figure out if default configuration is setup
 			//otherwise if custom then have to wait for XBEE response or from the reading from the board to determine which side to display
@@ -290,12 +308,12 @@ int main(void)
 	else if(currState == color)
 	{
 		if(keyNum == 1){
-			activeColor = 'b';
+			playerColor = 'b';
 			currState = startScreen;
 		}
 		else if(keyNum == 2)
 		{
-			activeColor = 'w';
+			playerColor = 'w';
 			currState = startScreen;
 		}
 		else if(keyNum == 3)
@@ -327,33 +345,89 @@ int main(void)
 	}
 	else if(currState == config){
 		if(keyNum == 1){
-			sendInformation("default setup\r");
+			defaultBoard = 0;
 			currState = startScreen;
 		}
 		else if(keyNum == 2){
-			//read board
-			currState = whoFirst;
+			defaultBoard = 1;
+			char nextBoard[8][8];
+//			custom_readCurrentBoard(nextBoard);
+//			updateBoard(nextBoard);
+			currState = validBoardState;
 		}
 	}
-	else if(currState == whoFirst){
-		//update board and send fen
+	else if(currState == validBoardState){
+		//YES
 		if(keyNum == 1){
+			currState = whoFirst;
+		}
+		//NO
+		else if(keyNum == 2){
+			currState = askRowState;
+		}
+	}
+	else if(currState == askRowState){
+		if(keyNum >= 1 && keyNum <= 8) currState = askColState;
+		if(keyNum == 1)selSquareRow = 7;
+		if(keyNum == 2)selSquareRow = 6;
+		if(keyNum == 3)selSquareRow = 5;
+		if(keyNum == 4)selSquareRow = 4;
+		if(keyNum == 5)selSquareRow = 3;
+		if(keyNum == 6)selSquareRow = 2;
+		if(keyNum == 7)selSquareRow = 1;
+		if(keyNum == 8)selSquareRow = 0;
+	}
+	else if(currState == askColState){
+		if(keyNum >= 1 && keyNum <= 8) currState = askPieceState;
+		if(keyNum == 1)selSquareCol = 0;
+		if(keyNum == 2)selSquareCol = 1;
+		if(keyNum == 3)selSquareCol = 2;
+		if(keyNum == 4)selSquareCol = 3;
+		if(keyNum == 5)selSquareCol = 4;
+		if(keyNum == 6)selSquareCol = 5;
+		if(keyNum == 7)selSquareCol = 6;
+		if(keyNum == 8)selSquareCol = 7;
+	}
+	else if(currState == askPieceState){
+		if(keyNum >= 1 && keyNum <= 13) currState = validBoardState;
+		if(keyNum == 1)board[selSquareRow][selSquareCol] = 'P';
+		if(keyNum == 2)board[selSquareRow][selSquareCol] = 'p';
+		if(keyNum == 3)board[selSquareRow][selSquareCol] = 'R';
+		if(keyNum == 4)board[selSquareRow][selSquareCol] = 'r';
+		if(keyNum == 5)board[selSquareRow][selSquareCol] = 'N';
+		if(keyNum == 6)board[selSquareRow][selSquareCol] = 'n';
+		if(keyNum == 7)board[selSquareRow][selSquareCol] = 'B';
+		if(keyNum == 8)board[selSquareRow][selSquareCol] = 'b';
+		if(keyNum == 9)board[selSquareRow][selSquareCol] = 'Q';
+		if(keyNum == 10)board[selSquareRow][selSquareCol] = 'q';
+		if(keyNum == 11)board[selSquareRow][selSquareCol] = 'K';
+		if(keyNum == 12)board[selSquareRow][selSquareCol] = 'k';
+	}
+	else if(currState == whoFirst){
+		if(keyNum == 1){
+			activeColor = 'b';
 			currState = startScreen;
 		}
 		else if(keyNum == 2){
+			activeColor = 'w';
 			currState = startScreen;
 		}
 	}
 	else if(currState == yourMove){
 		if(keyNum == 1){
-			//read from the board
+			blackwhite_readCurrentBoard(newBoard);
+			char move[5];
+//			findMoveFromBoards(newBoard, move);
+//			moveOnBoard(move);
 			//check the board to determine ivalid move
 			//if invalid move
-			currState = wrongMove;
+//			currState = wrongMove;
 			//else if gameOver(store infroamtion in some variable regarding who won)
-			currState = endGame;
+//			currState = endGame;
 			//else opponents turn
 			currState = enemyMove;
+			if(activeColor == 'w') activeColor = 'b';
+			else if(activeColor == 'b') activeColor = 'w';
 		}
 	}
 	else if(currState == wrongMove){
@@ -367,29 +441,52 @@ int main(void)
 		}
 	}
 	else if(currState == enemyMove){
-		if(humanAi == 'a'){
-//			sendInformation("computer move\r");
-			char move[5];
-			sendInformationGetData("computer move\r", move, 5, 2500);
-			int color = (playerColor == 'w') ? BLACK : WHITE;
-			executeInstruction(move, color, QUEEN);
-//			free(move);
+//		if(humanAi == 'a'){
+//			sendInformationGetData("computer move\r", move, 5, 2500);
+//		}
+//		else if(humanAi == 'h'){
+//			sendInformationGetData("human move\r", move, 5, 10000);
+//		}
+//		checkMoveForPickup(move);
+		if(numToPickUp > 0){
+			currState = pickPieceState;
 		}
-		else if(humanAi == 'h'){
-			if(sendInformation("human move\r")){
-//				getInformation(4, 50000);
-			}
+		else{
+			executeInstruction(move, activeColor);
+			moveOnBoard(move);
+			if(activeColor == 'w') activeColor = 'b';
+			else if(activeColor == 'b') activeColor = 'w';
+			currState = yourMove;
+			//assume for now that the move wont be invalid but could add a check here where set currstate to invalid move after checking opponent move
+			//use xbee data to determine which piece to physically move to allow the motor to work, and if there is a pieve to move change currState
+//			currState = pickPieces;
+			//othewise  call function to  move the motor
+			//once motor is movedd check if game ends and if game ends change currstate to end state after updating variable which piece won
+//			currState = endGame;
+			//otherwise
+//			currState = yourMove;
 		}
-		//assume for now that the move wont be invalid but could add a check here where set currstate to invalid move after checking opponent move
-		//use xbee data to determine which piece to physically move to allow the motor to work, and if there is a pieve to move change currState
-//		currState = pickPieces;
-		//othewise  call function to  move the motor
-		//once motor is movedd check if game ends and if game ends change currstate to end state after updating variable which piece won
-		currState = endGame;
-		//otherwise
-		currState = yourMove;
-	}
+//		else if(humanAi == 'h'){
+//			if(sendInformation("human move\r")){
+////				getInformation(4, 50000);
+//			}
+//		}
 
+	}
+	else if(currState == pickPieceState){
+		if(keyNum == 1){
+			//TODO get knight info here
+			executeInstruction(move, activeColor);
+			currState = yourMove;
+			numToPickUp = 0;
+			toPickUp[0][0] = '\0';
+			toPickUp[1][0] = '\0';
+			toPickUp[2][0] = '\0';
+			toPickUp[3][0] = '\0';
+			if(activeColor == 'w') activeColor = 'b';
+			else if(activeColor == 'b') activeColor = 'w';
+		}
+	}
 
 	//move the motor
 	//read Xvee data
@@ -413,10 +510,17 @@ int main(void)
 			makeMenu(9, difficultyLevel);
 		}
 		else if(currState == yourMove){
-//			char board[100];
-//			sendInformationGetData("board state\r", board, 100, 10000);
-//			makeMenu(1, board);
 			 makeMenu(2, yourTurn);
+		}
+		else if(currState == pickPieceState){
+			char* trigger[7];
+			trigger[0] = "Pick up pieces at:";
+			trigger[1] = toPickUp[0];
+			trigger[2] = toPickUp[1];
+			trigger[3] = toPickUp[2];
+			trigger[4] = toPickUp[3];
+			trigger[5] = "Press 1 to confirm";
+			makeMenu(6, trigger);
 		}
 		else if(currState == wrongMove){
 				makeMenu(2, invalid);
@@ -429,6 +533,19 @@ int main(void)
 		}
 		else if(currState == config){
 			makeMenu(2, configuration);
+		}
+		else if(currState == validBoardState){
+			displayChess(board);
+			HAL_Delay(1000);
+		}
+		else if(currState == askRowState){
+			makeMenu(9, askRow);
+		}
+		else if(currState == askColState){
+			makeMenu(9, askCol);
+		}
+		else if(currState == askPieceState){
+			makeMenu(7, askPiece);
 		}
 		else if(currState == whoFirst){
 			makeMenu(3, chooseFirst);
@@ -530,7 +647,7 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_3;
+  sConfig.Channel = ADC_CHANNEL_1;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
@@ -543,6 +660,54 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief LPUART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_LPUART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN LPUART1_Init 0 */
+
+  /* USER CODE END LPUART1_Init 0 */
+
+  /* USER CODE BEGIN LPUART1_Init 1 */
+
+  /* USER CODE END LPUART1_Init 1 */
+  hlpuart1.Instance = LPUART1;
+  hlpuart1.Init.BaudRate = 115200;
+  hlpuart1.Init.WordLength = UART_WORDLENGTH_8B;
+  hlpuart1.Init.StopBits = UART_STOPBITS_1;
+  hlpuart1.Init.Parity = UART_PARITY_NONE;
+  hlpuart1.Init.Mode = UART_MODE_TX_RX;
+  hlpuart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  hlpuart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  hlpuart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  hlpuart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  hlpuart1.FifoMode = UART_FIFOMODE_DISABLE;
+  if (HAL_UART_Init(&hlpuart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&hlpuart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&hlpuart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&hlpuart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN LPUART1_Init 2 */
+
+  /* USER CODE END LPUART1_Init 2 */
 
 }
 
@@ -666,11 +831,15 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOF, GPIO_PIN_3|GPIO_PIN_5|GPIO_PIN_13|GPIO_PIN_14, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_3|GPIO_PIN_4
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_6
                           |GPIO_PIN_12, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_2, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_2|GPIO_PIN_12|GPIO_PIN_13
+                          |GPIO_PIN_15|GPIO_PIN_4|GPIO_PIN_5, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_9|GPIO_PIN_11|GPIO_PIN_0, GPIO_PIN_RESET);
@@ -710,9 +879,9 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF13_SAI1;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PC0 PC1 PC3 PC4
+  /*Configure GPIO pins : PC1 PC3 PC4 PC6
                            PC12 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_3|GPIO_PIN_4
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_6
                           |GPIO_PIN_12;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -727,16 +896,25 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA4 PA5 PA6 PA7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
+  /*Configure GPIO pin : PA4 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA5 PA6 PA7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB0 PB2 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_2;
+  /*Configure GPIO pins : PB0 PB2 PB12 PB13
+                           PB15 PB4 PB5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_2|GPIO_PIN_12|GPIO_PIN_13
+                          |GPIO_PIN_15|GPIO_PIN_4|GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -777,14 +955,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF3_TIM1_COMP1;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB12 PB13 PB15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF13_SAI2;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
   /*Configure GPIO pin : PB14 */
   GPIO_InitStruct.Pin = GPIO_PIN_14;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -806,22 +976,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.Alternate = GPIO_AF2_TIM4;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PG7 PG8 */
-  GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_8;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  GPIO_InitStruct.Alternate = GPIO_AF8_LPUART1;
-  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PC6 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF13_SAI2;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PC7 */
   GPIO_InitStruct.Pin = GPIO_PIN_7;
@@ -870,8 +1024,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB3 PB4 PB5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5;
+  /*Configure GPIO pin : PB3 */
+  GPIO_InitStruct.Pin = GPIO_PIN_3;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -895,7 +1049,16 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&hlpuart1, (uint8_t *)&ch, 1, 0xFFFF);
+  return ch;
+}
 /* USER CODE END 4 */
 
 /**
