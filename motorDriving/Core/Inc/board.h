@@ -51,7 +51,7 @@ char** readCurrentBoard();
 void custom_readCurrentBoard(char (*board)[8]);
 
 ////update board to new board given full board
-void updateBoard(char** newBoard);
+void updateBoard(char (*newBoard)[8]);
 //
 ////update board to new board given move
 //void updateBoardMove(struct move change);
@@ -110,10 +110,10 @@ void writePin(Pin* pin, int val);
 void setMuxVal(uint16_t val, Mux* mux);
 
 //Returns board as FEN
-void boardToFEN(char board[8][8], char FEN[80]);
+void boardToFEN(char (*board)[8], char* FEN);
 
 //Finds move from one board to another
-void findMoveFromBoards(char** newBoard, char* move);
+void findMoveFromBoards(char (*newBoard)[8], char* move);
 
 void checkMoveForPickup(char move[5]);
 

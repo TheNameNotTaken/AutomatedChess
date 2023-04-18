@@ -79,12 +79,13 @@ char* opponentMove[16] = {"Opponent Move\0"};
 char* pickPieces[16] = {"\0"};
 char* askRow[32] = {"What row?", "1. 1", "2. 2", "3. 3", "4. 4", "5. 5", "6. 6", "7. 7", "8. 8"};
 char* askCol[32] = {"What column?", "1. A", "2. B", "3. C", "4. D", "5. E", "6. F", "7. G", "8. H"};
-char* askPiece[16] = {"What piece is right?", "1.P     2.p", "3.R     4.r", "5.N     6.n", "7.B     8.b", "9.Q     A.q", "B.K     C.k"};
+char* askPiece[16] = {"What piece is right?", "1.P     2.p", "3.R     4.r", "5.N     6.n", "7.B     8.b", "9.Q     A.q", "B.K     C.k", "D.-"};
+char* errorReadMove[30] = {"Error in reading state", "", "", "Press 1 to go back"};
 
 //opponent Move
 char move[5];
 
-enum State {pickPieceState, askPieceState, askColState, askRowState, validBoardState, whoFirst, startScreen, difficulty, color, type, yourMove, wrongMove, endGame, enemyMove, config , init, determineSide};
+enum State {errorReadMoveState, pickPieceState, askPieceState, askColState, askRowState, validBoardState, whoFirst, startScreen, difficulty, color, type, yourMove, wrongMove, endGame, enemyMove, config , init, determineSide};
 enum State currState = startScreen;
 enum State pastState = init;
 
@@ -215,7 +216,7 @@ int main(void)
   motorSetup();
   clearDisplay();
   makeMenu(5, mainMenu);
-//  setMagnet(BLACK);
+  setMagnet(STOP);
 //  moveToCoord("A1");
 //  moveToCoord("A8");
 //  moveToCoord("H8");
@@ -235,8 +236,12 @@ int main(void)
   while (1)
   {
 	  while(1){
+//		blackwhite_readCurrentBoard(board);
 		custom_readCurrentBoard(board);
 		print_board_char(board);
+//		setMagnet(BLACK);
+//		setMagnet(WHITE);
+//		setMagnet(STOP);
 	  }
 	 uint32_t keyNum = 16;
 	//1:, r2, pd8
@@ -351,8 +356,8 @@ int main(void)
 		else if(keyNum == 2){
 			defaultBoard = 1;
 			char nextBoard[8][8];
-//			custom_readCurrentBoard(nextBoard);
-//			updateBoard(nextBoard);
+			custom_readCurrentBoard(nextBoard);
+			updateBoard(nextBoard);
 			currState = validBoardState;
 		}
 	}
@@ -402,6 +407,7 @@ int main(void)
 		if(keyNum == 10)board[selSquareRow][selSquareCol] = 'q';
 		if(keyNum == 11)board[selSquareRow][selSquareCol] = 'K';
 		if(keyNum == 12)board[selSquareRow][selSquareCol] = 'k';
+		if(keyNum == 13)board[selSquareRow][selSquareCol] = '-';
 	}
 	else if(currState == whoFirst){
 		if(keyNum == 1){
@@ -417,17 +423,32 @@ int main(void)
 		if(keyNum == 1){
 			blackwhite_readCurrentBoard(newBoard);
 			char move[5];
-//			findMoveFromBoards(newBoard, move);
-//			moveOnBoard(move);
-			//check the board to determine ivalid move
-			//if invalid move
-//			currState = wrongMove;
-			//else if gameOver(store infroamtion in some variable regarding who won)
-//			currState = endGame;
-			//else opponents turn
-			currState = enemyMove;
-			if(activeColor == 'w') activeColor = 'b';
-			else if(activeColor == 'b') activeColor = 'w';
+			findMoveFromBoards(newBoard, move);
+			if(move[0] < 'A' || move[0] > 'H' || move[1] < '1' || move[1] > '8'
+			|| move[2] < 'A' || move[2] > 'H' || move[3] < '1' || move[3] > '8'){
+				currState = errorReadMoveState;
+			}
+			else{
+				sendInformation("make move\r");
+				char sentMove[6];
+				sprintf(sentMove, "%s\r", move);
+				sendInformation(sentMove);
+				moveOnBoard(move);
+				//check the board to determine ivalid move
+				//if invalid move
+		//			currState = wrongMove;
+				//else if gameOver(store infroamtion in some variable regarding who won)
+	//			currState = endGame;
+				//else opponents turn
+				currState = enemyMove;
+				if(activeColor == 'w') activeColor = 'b';
+				else if(activeColor == 'b') activeColor = 'w';
+			}
+		}
+	}
+	else if(currState == errorReadMoveState){
+		if(keyNum == 1){
+			currState = yourMove;
 		}
 	}
 	else if(currState == wrongMove){
@@ -441,18 +462,19 @@ int main(void)
 		}
 	}
 	else if(currState == enemyMove){
-//		if(humanAi == 'a'){
-//			sendInformationGetData("computer move\r", move, 5, 2500);
-//		}
-//		else if(humanAi == 'h'){
-//			sendInformationGetData("human move\r", move, 5, 10000);
-//		}
-//		checkMoveForPickup(move);
+		if(humanAi == 'a'){
+			sendInformationGetData("computer move\r", move, 5, 2500);
+		}
+		else if(humanAi == 'h'){
+			sendInformationGetData("human move\r", move, 5, 10000);
+		}
+		checkMoveForPickup(move);
 		if(numToPickUp > 0){
 			currState = pickPieceState;
 		}
 		else{
-			executeInstruction(move, activeColor);
+			int curColor = (activeColor == 'b') ? BLACK : WHITE;
+			executeInstruction(move, curColor);
 			moveOnBoard(move);
 			if(activeColor == 'w') activeColor = 'b';
 			else if(activeColor == 'b') activeColor = 'w';
@@ -512,6 +534,9 @@ int main(void)
 		else if(currState == yourMove){
 			 makeMenu(2, yourTurn);
 		}
+		else if(currState == errorReadMoveState){
+			makeMenu(4, errorReadMove);
+		}
 		else if(currState == pickPieceState){
 			char* trigger[7];
 			trigger[0] = "Pick up pieces at:";
@@ -545,7 +570,7 @@ int main(void)
 			makeMenu(9, askCol);
 		}
 		else if(currState == askPieceState){
-			makeMenu(7, askPiece);
+			makeMenu(8, askPiece);
 		}
 		else if(currState == whoFirst){
 			makeMenu(3, chooseFirst);

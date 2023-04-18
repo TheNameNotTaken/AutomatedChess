@@ -44,7 +44,7 @@
 #define largestX 4254
 #define smallestX 25
 //#define largestY 13500
-#define largestY 3700
+#define largestY 3500
 #define smallestY 241
 
 //X refers to larger space
@@ -109,7 +109,7 @@ void moveToCoord(char* square){
 			HAL_GPIO_WritePin(stepSmallPort, stepSmall, 1);
 			counter++;
 		}
-		HAL_Delay(1);
+		HAL_Delay(2);
 		if(deltaX > 0){
 			HAL_GPIO_WritePin(stepBigPort, stepBig, 0);
 			deltaX--;

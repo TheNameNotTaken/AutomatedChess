@@ -75,6 +75,7 @@ def makeMove():
     move = ser.read_until(expected=serial.CR, size=10).decode('ascii')[:-1]
     ser.write(b'ack')
     stockfish.make_moves_from_current_position([move.lower()])
+    print(fenToArt(stockfish.get_fen_position()))
 
 def computerMove():
     move = stockfish.get_best_move()
