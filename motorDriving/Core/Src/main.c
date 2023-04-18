@@ -429,20 +429,26 @@ int main(void)
 				currState = errorReadMoveState;
 			}
 			else{
-				sendInformation("make move\r");
 				char sentMove[6];
+				char trueFalse[6];
 				sprintf(sentMove, "%s\r", move);
-				sendInformation(sentMove);
-				moveOnBoard(move);
-				//check the board to determine ivalid move
-				//if invalid move
-		//			currState = wrongMove;
-				//else if gameOver(store infroamtion in some variable regarding who won)
-	//			currState = endGame;
-				//else opponents turn
-				currState = enemyMove;
-				if(activeColor == 'w') activeColor = 'b';
-				else if(activeColor == 'b') activeColor = 'w';
+				sendInformation("check move\r");
+				sendInformationGetData(&sentMove, &trueFalse, 6, 1000);
+				if(trueFalse[0] == 'F'){
+					currState = wrongMove;
+				}
+				else{
+					sendInformation("make move\r");
+					sendInformation(sentMove);
+					moveOnBoard(move);
+			//			currState = wrongMove;
+					//else if gameOver(store infroamtion in some variable regarding who won)
+		//			currState = endGame;
+					//else opponents turn
+					currState = enemyMove;
+					if(activeColor == 'w') activeColor = 'b';
+					else if(activeColor == 'b') activeColor = 'w';
+				}
 			}
 		}
 	}
