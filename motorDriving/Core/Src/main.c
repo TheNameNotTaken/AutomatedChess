@@ -363,11 +363,11 @@ int main(void)
 		}
 		//NO
 		else if(keyNum == 2){
-			currState = askRowState;
+			currState = askColState;
 		}
 	}
 	else if(currState == askRowState){
-		if(keyNum >= 1 && keyNum <= 8) currState = askColState;
+		if(keyNum >= 1 && keyNum <= 8) currState = askPieceState;
 		if(keyNum == 1)selSquareRow = 7;
 		if(keyNum == 2)selSquareRow = 6;
 		if(keyNum == 3)selSquareRow = 5;
@@ -378,7 +378,7 @@ int main(void)
 		if(keyNum == 8)selSquareRow = 0;
 	}
 	else if(currState == askColState){
-		if(keyNum >= 1 && keyNum <= 8) currState = askPieceState;
+		if(keyNum >= 1 && keyNum <= 8) currState = askRowState;
 		if(keyNum == 1)selSquareCol = 0;
 		if(keyNum == 2)selSquareCol = 1;
 		if(keyNum == 3)selSquareCol = 2;

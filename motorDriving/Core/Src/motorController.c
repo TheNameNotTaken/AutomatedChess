@@ -41,11 +41,11 @@
 //#define smallestY 151*16
 
 //#define largestX 16800
-#define largestX 1000
-#define smallestX 19
+#define largestX 4254
+#define smallestX 25
 //#define largestY 13500
-#define largestY 100
-#define smallestY 1000
+#define largestY 3700
+#define smallestY 241
 
 //X refers to larger space
 struct coordinate curPosition = {0,0};
